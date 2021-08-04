@@ -1,4 +1,5 @@
 import React from "react";
+//Components
 import Loader from "../../components/loader/Loader";
 
 const PhotoStudio = () => {
