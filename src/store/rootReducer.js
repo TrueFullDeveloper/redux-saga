@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { mainPageReducer } from "./mainPageReducer";
+import { loaderReducer } from "./loader/loaderReducer";
 
 export const rootReducer = combineReducers({
-  mainPage: mainPageReducer,
+  loader: loaderReducer,
 });

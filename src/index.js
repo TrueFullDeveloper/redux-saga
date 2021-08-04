@@ -4,18 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // Develop Imports
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import createSagaMiddleware from "redux-saga";
-import { rootReducer } from "./store/rootReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
-
-const saga = createSagaMiddleware();
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-
-//saga.run(sagaWatcher);
+import { store } from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
