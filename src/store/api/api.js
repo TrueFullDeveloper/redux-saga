@@ -8,7 +8,7 @@ export const Api = {
       password,
     });
 
-    return { userId: authData.userId };
+    return authData.userId;
   },
 
   signup: async ({ email, password, userName }) => {
@@ -18,6 +18,6 @@ export const Api = {
       userName,
     });
 
-    return { userId: authData.userId };
+    return authData.userId;
   },
 };

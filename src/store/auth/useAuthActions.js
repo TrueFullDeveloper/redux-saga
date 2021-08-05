@@ -34,16 +34,3 @@ const useAuthActions = () => {
 };
 
 export default useAuthActions;
-
-/*
-const { doLogin } = useAuthActions();
-
-const onSubmit = ({ email, password }) => {
-  doLogin({ email, password });
-}
-
-
-<form onSubmit={onSubmit}>
-  <input type="email" />
-</form>
- */
