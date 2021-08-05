@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { signup } from "../../store/api/authSlice";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import styles from "./Signup.module.scss";
+import useAuthActions from "../../store/auth/useAuthActions";
 //i18n
 import { useTranslation } from "react-i18next";
 
+//TODO: Add Normal Equal Password Validation
+
 const Signup = () => {
-  const dispatch = useDispatch();
+  const { doSignup } = useAuthActions();
   const { t } = useTranslation();
 
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
@@ -40,7 +40,7 @@ const Signup = () => {
 
     onSubmit: ({ name, emailField, password, passwordRep }) => {
       if (password === passwordRep) {
-        //dispatch(signup({ email: emailField, password, userName: name }));
+        doSignup({ email: emailField, password, userName: name });
       } else {
         alert(t("common.passwordField.passwordsNotMatchUpError"));
       }
@@ -48,7 +48,7 @@ const Signup = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit} className={styles.signup_form}>
+    <form onSubmit={handleSubmit}>
       <h1>{t("pages.signup.signupTitle")}</h1>
 
       <input
@@ -58,12 +58,9 @@ const Signup = () => {
         name="name"
         value={values.name}
         onChange={handleChange}
-        className={styles.user_name_field}
       />
 
-      {touched.name && errors.name ? (
-        <span className={styles.error_message}>{errors.name}</span>
-      ) : null}
+      {touched.name && errors.name ? <span>{errors.name}</span> : null}
 
       <input
         placeholder={t("common.userNameField.userNamePlaceholder")}
@@ -72,12 +69,9 @@ const Signup = () => {
         name="emailField"
         value={values.emailField}
         onChange={handleChange}
-        className={styles.email_field}
       />
 
-      {touched.emailField && errors.emailField ? (
-        <span className={styles.error_message}>{errors.emailField}</span>
-      ) : null}
+      {touched.emailField && errors.emailField ? <span>{errors.emailField}</span> : null}
 
       <input
         placeholder={t("common.passwordField.passwordPlaceholder")}
@@ -88,9 +82,7 @@ const Signup = () => {
         onChange={handleChange}
       />
 
-      {touched.password && errors.password ? (
-        <span className={styles.error_message}>{errors.password}</span>
-      ) : null}
+      {touched.password && errors.password ? <span>{errors.password}</span> : null}
 
       <input
         placeholder={t("common.passwordField.repeatPasswordPlaceholder")}
@@ -101,9 +93,7 @@ const Signup = () => {
         onChange={handleChange}
       />
 
-      {touched.passwordRep && errors.passwordRep ? (
-        <span className={styles.error_message}>{errors.passwordRep}</span>
-      ) : null}
+      {touched.passwordRep && errors.passwordRep ? <span>{errors.passwordRep}</span> : null}
 
       <button type="submit">{t("pages.signup.signupButton")}</button>
       <Link to="/login">{t("pages.signup.loginLink")}</Link>
