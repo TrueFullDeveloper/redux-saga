@@ -1,31 +1,32 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const isAuthenticated = true;
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   return (
     <div>
       <div>
-        <NavLink to="/">Главная</NavLink>
+        <Link to="/">Главная</Link>
       </div>
 
       <div>
-        <NavLink to="/photo_studio">Фотостудия</NavLink>
+        <Link to="/photo_studio">Фотостудия</Link>
       </div>
 
       {isAuthenticated ? (
         <div>
-          <NavLink to="/profile">Профиль</NavLink>
+          <Link to="/profile">Профиль</Link>
         </div>
       ) : (
         <>
           <div>
-            <NavLink to="/login">Войти</NavLink>
+            <Link to="/login">Войти</Link>
           </div>
 
           <div>
-            <NavLink to="/signup">Регистрация</NavLink>
+            <Link to="/signup">Регистрация</Link>
           </div>
         </>
       )}

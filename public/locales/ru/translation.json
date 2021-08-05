@@ -1,0 +1,46 @@
+{
+    "title": "Eventer",
+    "pages": {
+        "login": {
+            "loginTitle": "Авторизация",
+            "signinButton": "Войти",
+            "forgotPasswordLink": "Забыли пароль?",
+            "signupLink": "Регистрация"
+        },
+        "signup": {
+            "signupTitle": "Регистрация",
+            "signupButton": "Зарегистрироваться",
+            "loginLink": "Войти"
+        }
+    },
+    "components": {
+        "header": {
+            "usersLink": "Пользователи",
+            "chatsLink": "Ваши чаты",
+            "profileLink": "Профиль",
+            "createEventLink": "Добавить мероприятие"
+        }
+    },
+    "common": {
+        "emailField": {
+            "emailValidationError": "Должен быть указан адрес электроной почты",
+            "emailNotRequiredError": "Вы не указали адрес электронной почты",
+            "emailPlaceholder": "Почта"
+        },
+        "userNameField": {
+            "userNameShortError": "Имя должно содержать больше одного символа",
+            "userNameExceedsLimitError": "Имя не должно содерать больше 20 символов",
+            "userNameNotRequiredError": "Имя должно быть указано",
+            "userNamePlaceholder": "Имя"
+        },
+        "passwordField": {
+            "passwordShortError": "Пароль должен содерать 6 или более символов",
+            "passwordExceedsLimitError": "Пароль не должен содерать больше 40 символов",
+            "passwordNotRequiredError": "Пароль должен быть указан",
+            "repeatPasswordError": "Повторите пароль, пожалуйста",
+            "passwordsNotMatchUpError": "Пароли не совпадают",
+            "passwordPlaceholder": "Пароль",
+            "repeatPasswordPlaceholder": "Повторите пароль"
+        }
+    }
+}

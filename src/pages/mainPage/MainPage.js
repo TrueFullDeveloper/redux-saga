@@ -1,21 +1,9 @@
 import React from "react";
 //Components
-import Loader from "../../components/loader/Loader";
+import Header from "../../components/header";
 
 const MainPage = () => {
-  const loading = false;
-
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div>MainPage</div>
-        </>
-      )}
-    </>
-  );
+  return <Header />;
 };
 
 export default MainPage;
