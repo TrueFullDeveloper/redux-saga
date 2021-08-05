@@ -13,9 +13,10 @@ const useAuthActions = () => {
       .then(response => {
         dispatch(login(response));
       })
-      .catch(error => console.log(error));
-
-    dispatch(hideLoader());
+      .catch(error => console.log(error))
+      .finally(() => {
+        dispatch(hideLoader());
+      });
   };
 
   const doSignup = async ({ email, password, userName }) => {
@@ -25,9 +26,10 @@ const useAuthActions = () => {
       .then(response => {
         dispatch(signup(response));
       })
-      .catch(error => console.log(error));
-
-    dispatch(hideLoader());
+      .catch(error => console.log(error))
+      .finally(() => {
+        dispatch(hideLoader());
+      });
   };
 
   return { doLogin, doSignup };
