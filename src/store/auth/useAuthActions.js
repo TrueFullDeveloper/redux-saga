@@ -6,10 +6,10 @@ import { login, signup } from "./authActions";
 const useAuthActions = () => {
   const dispatch = useDispatch();
 
-  const doLogin = ({ email, password }) => {
+  const doLogin = async ({ email, password }) => {
     dispatch(showLoader());
 
-    Api.login({ email, password })
+    await Api.login({ email, password })
       .then(response => {
         dispatch(login(response));
       })
@@ -18,10 +18,10 @@ const useAuthActions = () => {
     dispatch(hideLoader());
   };
 
-  const doSignup = ({ email, password, userName }) => {
+  const doSignup = async ({ email, password, userName }) => {
     dispatch(showLoader());
 
-    Api.signup({ email, password, userName })
+    await Api.signup({ email, password, userName })
       .then(response => {
         dispatch(signup(response));
       })

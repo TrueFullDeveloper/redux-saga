@@ -54,9 +54,7 @@ const Login = () => {
       {touched.password && errors.password ? <span>{errors.password}</span> : null}
 
       <button type="submit">{t("pages.login.signinButton")}</button>
-      <div>
-        <Link to="/passwordreset">{t("pages.login.forgotPasswordLink")}</Link>
-      </div>
+
       <div>
         <Link to="/signup">{t("pages.login.signupLink")}</Link>
       </div>
