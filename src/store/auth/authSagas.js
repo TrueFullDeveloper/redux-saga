@@ -1,18 +1,25 @@
-import { takeEvery, put, call } from "redux-saga/effects";
-import { FETCH_POSTS, REQUEST_POSTS } from "./types";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { takeEvery } from "redux-saga/effects";
+import { TIME_STAMP } from "../../config/constans";
+import { LOGIN, SIGNUP, LOGOUT } from "./authActions";
 
-export function* authWatcher() {
-  yield takeEvery(REQUEST_POSTS, sagaWorker);
+function* loginWorker() {
+  try {
+    yield localStorage.setItem(TIME_STAMP, new Date());
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
-function* authWorker() {
+function* logoutWorker() {
   try {
-    yield put(showLoader());
-    const payload = yield call(fetchPosts);
-    yield put({ type: FETCH_POSTS, payload });
-    yield put(hideLoader());
-  } catch (e) {
-    yield put(hideLoader());
+    yield localStorage.removeItem(TIME_STAMP);
+  } catch (error) {
+    yield console.log(error.message);
   }
+}
+
+export function* authWatcher() {
+  yield takeEvery(LOGIN, loginWorker);
+  yield takeEvery(SIGNUP, loginWorker);
+  yield takeEvery(LOGOUT, logoutWorker);
 }

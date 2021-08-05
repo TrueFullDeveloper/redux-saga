@@ -1,4 +1,5 @@
-import { authData } from "../fakeData/fakeData";
+import { authData } from "../_fakeData/fakeData";
+import axios from "axios";
 
 export const Api = {
   login: async ({ email, password }) => {
@@ -7,7 +8,7 @@ export const Api = {
       password,
     });
 
-    return { userId: authData.userId, userToken: authData.userToken };
+    return { userId: authData.userId };
   },
 
   signup: async ({ email, password, userName }) => {
@@ -17,6 +18,6 @@ export const Api = {
       userName,
     });
 
-    return { userId: authData.userId, userToken: authData.userToken };
+    return { userId: authData.userId };
   },
 };
