@@ -1,5 +1,5 @@
 import { TIME_STAMP, TIMER_MINUTS } from "../../config/constans";
-import { LOGIN, SIGNUP, logout } from "../auth/authActions";
+import { LOGIN, SIGNUP, logout, LOGOUT } from "../auth/authActions";
 
 const timeIsUp = () => {
   const lastLoginTime = new Date(localStorage.getItem(TIME_STAMP));
@@ -13,7 +13,7 @@ const timeIsUp = () => {
 export function authTimerMiddleware({ dispatch }) {
   return function (next) {
     return function (action) {
-      if (action.type != LOGIN || action.type != SIGNUP) {
+      if (action.type !== LOGIN && action.type !== SIGNUP && action.type !== LOGOUT) {
         if (timeIsUp()) {
           return dispatch(logout());
         }
