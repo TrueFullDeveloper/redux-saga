@@ -6,6 +6,7 @@ import photoPackage3 from "../../static/fakeImages/tourData/photoPackage3.jpg";
 
 export const authData = {
   userId: 10,
+  userToken: "FASDFSD23523RFF232FR23FW",
 };
 
 export const tourData = {

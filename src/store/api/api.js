@@ -9,7 +9,7 @@ export const Api = {
       password,
     });
 
-    return authData.userId;
+    return { userId: authData.userId, userToken: authData.userToken };
   },
 
   signup: async ({ email, password, userName }) => {
@@ -19,7 +19,15 @@ export const Api = {
       userName,
     });
 
-    return authData.userId;
+    return { userId: authData.userId, userToken: authData.userToken };
+  },
+
+  tokenUpdate: async ({ userToken }) => {
+    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      userToken,
+    });
+
+    return { userId: authData.userId, userToken: authData.userToken };
   },
 
   // Tour API

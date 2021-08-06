@@ -1,23 +1,33 @@
-export const LOGIN = "LOGIN";
-export const SIGNUP = "SIGNUP";
-export const LOGOUT = "LOGOUT";
+export const authActions = {
+  LOGIN: "LOGIN",
+  SIGNUP: "SIGNUP",
+  LOGOUT: "LOGOUT",
+  TOKEN_UPDATE: "TOKEN_UPDATE",
+};
 
 export const login = payload => {
   return {
-    type: LOGIN,
+    type: authActions.LOGIN,
     payload,
   };
 };
 
 export const signup = payload => {
   return {
-    type: SIGNUP,
+    type: authActions.SIGNUP,
+    payload,
+  };
+};
+
+export const tokenUpdate = payload => {
+  return {
+    type: authActions.TOKEN_UPDATE,
     payload,
   };
 };
 
 export const logout = () => {
   return {
-    type: LOGOUT,
+    type: authActions.LOGOUT,
   };
 };

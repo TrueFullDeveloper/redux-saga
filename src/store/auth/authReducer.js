@@ -1,4 +1,4 @@
-import { LOGIN, SIGNUP, LOGOUT } from "./authActions";
+import { authActions } from "./authActions";
 
 const initialState = {
   userId: null,
@@ -7,11 +7,13 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
-      return { ...state, userId: action.payload, isAuthenticated: true };
-    case SIGNUP:
-      return { ...state, userId: action.payload, isAuthenticated: true };
-    case LOGOUT:
+    case authActions.LOGIN:
+      return { ...state, userId: action.payload.userId, isAuthenticated: true };
+    case authActions.SIGNUP:
+      return { ...state, userId: action.payload.userId, isAuthenticated: true };
+    case authActions.TOKEN_UPDATE:
+      return { ...state, userId: action.payload.userId, isAuthenticated: true };
+    case authActions.LOGOUT:
       return { ...state, userId: null, isAuthenticated: false };
     default:
       return state;
