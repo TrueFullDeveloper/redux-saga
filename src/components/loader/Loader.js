@@ -1,8 +1,9 @@
+import "./Loader.css";
 import React from "react";
 
 const Loader = () => {
   return (
-    <div>
+    <div className="loader">
       <span>Loading...</span>
     </div>
   );

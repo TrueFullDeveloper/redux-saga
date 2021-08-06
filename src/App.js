@@ -11,12 +11,13 @@ function App() {
 
   const routes = getRoutes(isAuthenticated);
 
-  return loading ? (
-    <Loader />
-  ) : (
-    <Suspense fallback={<Loader />}>
-      <BrowserRouter>{routes}</BrowserRouter>
-    </Suspense>
+  return (
+    <>
+      <Suspense fallback={<Loader />}>
+        <BrowserRouter>{routes}</BrowserRouter>
+      </Suspense>
+      {loading ? <Loader /> : null}
+    </>
   );
 }
 
