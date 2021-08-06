@@ -1,23 +1,32 @@
-export const LOGIN = "LOGIN";
-export const SIGNUP = "SIGNUP";
-export const LOGOUT = "LOGOUT";
+export const FETCH_TOUR_LIST = "FETCH_TOUR_LIST";
+export const FETCH_TOUR_INFORMATION = "FETCH_TOUR_INFORMATION";
+export const FETCH_PHOTO_PACKAGE = "FETCH_PHOTO_PACKAGE";
+export const FETCH_TOUR_MANAGER = "FETCH_TOUR_MANAGER";
 
-export const login = payload => {
+export const fetchTourList = payload => {
   return {
-    type: LOGIN,
+    type: FETCH_TOUR_LIST,
     payload,
   };
 };
 
-export const signup = payload => {
+export const fetchTourInformation = payload => {
   return {
-    type: SIGNUP,
+    type: FETCH_TOUR_INFORMATION,
     payload,
   };
 };
 
-export const logout = () => {
+export const fetchPhotoPackage = payload => {
   return {
-    type: LOGOUT,
+    type: FETCH_PHOTO_PACKAGE,
+    payload,
+  };
+};
+
+export const fetchTourManager = payload => {
+  return {
+    type: FETCH_TOUR_MANAGER,
+    payload,
   };
 };

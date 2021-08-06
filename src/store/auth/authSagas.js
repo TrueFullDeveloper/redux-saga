@@ -5,6 +5,7 @@ import { LOGIN, SIGNUP, LOGOUT } from "./authActions";
 function* loginWorker() {
   try {
     yield localStorage.setItem(TIME_STAMP, new Date());
+    yield console.log("Time stamp is ", new Date());
   } catch (error) {
     console.log(error.message);
   }

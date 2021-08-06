@@ -1,18 +1,27 @@
-import { LOGIN, SIGNUP, LOGOUT } from "./tourActions";
+import {
+  FETCH_TOUR_LIST,
+  FETCH_TOUR_INFORMATION,
+  FETCH_PHOTO_PACKAGE,
+  FETCH_TOUR_MANAGER,
+} from "./tourActions";
 
 const initialState = {
-  userId: null,
-  isAuthenticated: false,
+  tourList: [],
+  tourInformation: null,
+  photoPackage: [],
+  tourManager: null,
 };
 
 export const tourReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
-      return { ...state, userId: action.payload, isAuthenticated: true };
-    case SIGNUP:
-      return { ...state, userId: action.payload, isAuthenticated: true };
-    case LOGOUT:
-      return { ...state, userId: null, isAuthenticated: false };
+    case FETCH_TOUR_LIST:
+      return { ...state, tourList: action.payload };
+    case FETCH_TOUR_INFORMATION:
+      return { ...state, tourInformation: action.payload };
+    case FETCH_PHOTO_PACKAGE:
+      return { ...state, photoPackage: action.payload };
+    case FETCH_TOUR_MANAGER:
+      return { ...state, tourManager: action.payload };
     default:
       return state;
   }

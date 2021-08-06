@@ -1,17 +1,22 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
 import { hideLoader, showLoader } from "../loader/loaderActions";
-import { login, signup } from "./tourActions";
+import {
+  fetchTourList,
+  fetchTourInformation,
+  fetchPhotoPackage,
+  fetchTourManager,
+} from "./tourActions";
 
-const useAuthActions = () => {
+const useTourActions = () => {
   const dispatch = useDispatch();
 
-  const doLogin = async ({ email, password }) => {
+  const getTourList = async () => {
     dispatch(showLoader());
 
-    await Api.login({ email, password })
+    await Api.fetchTourList()
       .then(response => {
-        dispatch(login(response));
+        dispatch(fetchTourList(response));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -19,12 +24,24 @@ const useAuthActions = () => {
       });
   };
 
-  const doSignup = async ({ email, password, userName }) => {
+  const getTour = async ({ tourId }) => {
     dispatch(showLoader());
 
-    await Api.signup({ email, password, userName })
+    await Api.fetchTourInformation(tourId)
       .then(response => {
-        dispatch(signup(response));
+        dispatch(fetchTourInformation(response));
+      })
+      .catch(error => console.log(error));
+
+    await Api.fetchPhotoPackage(tourId)
+      .then(response => {
+        dispatch(fetchPhotoPackage(response));
+      })
+      .catch(error => console.log(error));
+
+    await Api.fetchTourManager(tourId)
+      .then(response => {
+        dispatch(fetchTourManager(response));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -32,7 +49,7 @@ const useAuthActions = () => {
       });
   };
 
-  return { doLogin, doSignup };
+  return { getTourList, getTour };
 };
 
-export default useAuthActions;
+export default useTourActions;
