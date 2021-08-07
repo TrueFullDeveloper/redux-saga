@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
 import { hideLoader, showLoader } from "../loader/loaderActions";

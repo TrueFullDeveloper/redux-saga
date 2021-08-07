@@ -7,9 +7,26 @@ import {
 
 const initialState = {
   tourList: [],
-  tourInformation: null,
+  tourInformation: {
+    tourTitle: null,
+    tourDescription: null,
+    tourPhotoTitle: null,
+    shootingTime: null,
+    tourLanguages: [],
+    tourCost: null,
+    tourLocation: null,
+    numberOfPhotos: null,
+    tourRating: null,
+  },
   photoPackage: [],
-  tourManager: null,
+  tourManager: {
+    tourManagerId: null,
+    photo: null,
+    firstName: null,
+    lastName: null,
+    speciality: null,
+    managerDescription: null,
+  },
 };
 
 export const tourReducer = (state = initialState, action) => {
