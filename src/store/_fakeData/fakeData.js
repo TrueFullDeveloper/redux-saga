@@ -85,3 +85,46 @@ export const tourData = {
       "Lfsdgag gsdgs dgf gds hsgfhhhhrhqegag gsdgwegbg fg sdfhs gh sj tjs jgf jtj t herahrehrehferdfh herhare hareh aerh rehare hare hre aharehaerh rehareh",
   },
 };
+export const tourManagerData = {
+  managerTourList: [
+    {
+      tourId: 0,
+      tourTitle: "Some Title",
+      tourDescription: "Some Description",
+      tourPhotoTitle: photoTitle,
+      tourRate: 5,
+    },
+    {
+      tourId: 1,
+      tourTitle: "Some Title",
+      tourDescription: "Some Description",
+      tourPhotoTitle: photoTitle,
+      tourRate: 5,
+    },
+    {
+      tourId: 2,
+      tourTitle: "Some Title",
+      tourDescription: "Some Description",
+      tourPhotoTitle: photoTitle,
+      tourRate: 5,
+    },
+    {
+      tourId: 3,
+      tourTitle: "Some Title",
+      tourDescription: "Some Description",
+      tourPhotoTitle: photoTitle,
+      tourRate: 5,
+    },
+  ],
+  tourManager: {
+    tourManagerId: 0,
+    photo: tourManagerPhoto,
+    firstName: "Artem",
+    lastName: "Krivchun",
+    speciality: "Фотограф",
+    managerDescription:
+      "Lfsdgag gsdgs dgf gds hsgfhhhhrhqegag gsdgwegbg fg sdfhs gh sj tjs jgf jtj t herahrehrehferdfh herhare hareh aerh rehare hare hre aharehaerh rehareh",
+    averageTourRating: 5,
+    managerLanguages: "Русский, English",
+  },
+};

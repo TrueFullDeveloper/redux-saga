@@ -27,7 +27,7 @@ const useTourActions = () => {
   const getTour = async ({ tourId }) => {
     dispatch(showLoader());
 
-    await Api.fetchTourInformation(tourId)
+    await Api.fetchTourInformation({ tourId })
       .then(response => {
         dispatch(fetchTourInformation(response));
       })

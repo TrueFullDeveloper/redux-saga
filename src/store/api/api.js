@@ -1,4 +1,4 @@
-import { authData, tourData } from "../_fakeData/fakeData";
+import { authData, tourData, tourManagerData } from "../_fakeData/fakeData";
 import axios from "axios";
 
 export const Api = {
@@ -64,5 +64,24 @@ export const Api = {
     );
 
     return tourData.tourManager;
+  },
+
+  // Tour Manger Profile API
+  fetchTourManagerProfile: async ({ tourManagerId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { tourManagerId }
+    );
+
+    return tourManagerData.tourManager;
+  },
+
+  fetchTourManagerTourList: async ({ tourManagerId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { tourManagerId }
+    );
+
+    return tourManagerData.managerTourList;
   },
 };
