@@ -12,30 +12,35 @@ export const authData = {
 export const tourData = {
   tourList: [
     {
+      tourId: 0,
       tourTitle: "Some Title",
       tourDescription: "Some Description",
       tourPhotoTitle: photoTitle,
       tourRate: 5,
     },
     {
+      tourId: 1,
       tourTitle: "Some Title",
       tourDescription: "Some Description",
       tourPhotoTitle: photoTitle,
       tourRate: 5,
     },
     {
+      tourId: 2,
       tourTitle: "Some Title",
       tourDescription: "Some Description",
       tourPhotoTitle: photoTitle,
       tourRate: 5,
     },
     {
+      tourId: 3,
       tourTitle: "Some Title",
       tourDescription: "Some Description",
       tourPhotoTitle: photoTitle,
       tourRate: 5,
     },
     {
+      tourId: 4,
       tourTitle: "Some Title",
       tourDescription: "Some Description",
       tourPhotoTitle: photoTitle,
@@ -71,6 +76,7 @@ export const tourData = {
     photoPackage3,
   ],
   tourManager: {
+    tourManagerId: 0,
     photo: tourManagerPhoto,
     firstName: "Artem",
     lastName: "Krivchun",

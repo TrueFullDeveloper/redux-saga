@@ -16,7 +16,6 @@ const MainPage = () => {
   return (
     <>
       <Header />
-      <button onClick={getTourList}>Tour List</button>
       <TourList tourList={tourList} />
     </>
   );

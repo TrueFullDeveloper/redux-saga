@@ -10,6 +10,10 @@
             "signupTitle": "Регистрация",
             "signupButton": "Зарегистрироваться",
             "loginLink": "Войти"
+        },
+        "mainPage": {
+            "tourListTitle": "Список туров",
+            "moreDetailsButton": "Подробнее"
         }
     },
     "components": {
