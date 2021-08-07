@@ -128,3 +128,13 @@ export const tourManagerData = {
     managerLanguages: "Русский, English",
   },
 };
+
+export const profileData = {
+  photo: tourManagerPhoto,
+  firstName: "Artem",
+  lastName: "Krivchun",
+  role: "Организатор",
+  profileDescription:
+    "Lfsdgag gsdgs dgf gds hsgfhhhhrhqegag gsdgwegbg fg sdfhs gh sj tjs jgf jtj t herahrehrehferdfh herhare hareh aerh rehare hare hre aharehaerh rehareh",
+  userLanguages: "Русский, English",
+};

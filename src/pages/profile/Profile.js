@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import useProfileActions from "../../store/profile/useProfileActions";
 //Components
-import Loader from "../../components/loader/Loader";
+import Header from "../../components/header";
 
 const Profile = () => {
-  const loading = false;
+  const profile = useSelector(state => state.profile);
+  const userId = useSelector(state => state.auth.userId);
+  const { getProfile } = useProfileActions();
+
+  useEffect(() => getProfile({ userId }), []);
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div>Profile</div>
-        </>
-      )}
+      <Header />
     </>
   );
 };
