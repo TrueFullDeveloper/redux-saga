@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTourActions from "../../store/tour/useTourActions";
 //i18n
 import { useTranslation } from "react-i18next";
 
 const TourList = ({ tourList }) => {
   const { t } = useTranslation();
+  const { getTour } = useTourActions();
 
   return (
     <div>
@@ -16,7 +18,12 @@ const TourList = ({ tourList }) => {
           <h1>{tourListItem.tourTitle}</h1>
           <p>{tourListItem.tourDescription}</p>
           <div>{tourListItem.tourRate}</div>
-          <button type="button">{t("pages.mainPage.moreDetailsButton")}</button>
+
+          <Link to="/tour">
+            <button type="button" onClick={() => getTour({ tourId: tourListItem.tourId })}>
+              {t("pages.mainPage.moreDetailsButton")}
+            </button>
+          </Link>
         </div>
       ))}
     </div>

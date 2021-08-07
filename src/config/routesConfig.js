@@ -14,4 +14,8 @@ export const routesConfig = [
     path: "/photographer",
     component: lazy(() => import("../pages/photographer")),
   },
+  {
+    path: "/tour",
+    component: lazy(() => import("../pages/tourPage")),
+  },
 ];
