@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 //i18n
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +15,9 @@ const TourManager = ({ tourManager }) => {
       <div>{tourManager.speciality}</div>
       <p>{tourManager.managerDescription}</p>
 
-      <button type="button">{t("pages.tourPage.moreDetailsButton")}</button>
+      <Link to={`/tour_manager/${tourManager.tourManagerId}`}>
+        <button type="button">{t("pages.tourPage.moreDetailsButton")}</button>
+      </Link>
     </div>
   );
 };
