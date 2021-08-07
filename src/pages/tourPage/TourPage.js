@@ -6,6 +6,7 @@ import useTourActions from "../../store/tour/useTourActions";
 import Header from "../../components/header";
 import TourInformation from "../../components/tourInformation";
 import PhotoPackage from "../../components/photoPackage/PhotoPackage";
+import TourManager from "../../components/tourManager/TourManager";
 
 const TourPage = () => {
   const tourInformation = useSelector(state => state.tour.tourInformation);
@@ -21,6 +22,7 @@ const TourPage = () => {
       <Header />
       <TourInformation tourInformation={tourInformation} />
       <PhotoPackage photoPackage={photoPackage} />
+      <TourManager tourManager={tourManager} />
     </>
   );
 };

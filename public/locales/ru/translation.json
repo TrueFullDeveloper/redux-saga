@@ -16,7 +16,9 @@
             "moreDetailsButton": "Подробнее"
         },
         "tourPage": {
-            "photoPackageTitle": "Пакет фотографий"
+            "photoPackageTitle": "Пакет фотографий:",
+            "aboutTourManagerTitle": "Об организаторе:",
+            "moreDetailsButton": "Подробнее"
         }
     },
     "components": {
