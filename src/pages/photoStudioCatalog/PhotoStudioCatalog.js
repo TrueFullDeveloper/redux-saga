@@ -4,7 +4,7 @@ import useStudioActions from "../../store/studio/useStudioActions";
 //Components
 import Header from "../../components/header/Header";
 
-const PhotoStudio = () => {
+const PhotoStudioCatalog = () => {
   const photoStudioList = useSelector(state => state.studio.photoStudioList);
   const { getPhotoStudioList } = useStudioActions();
 
@@ -17,4 +17,4 @@ const PhotoStudio = () => {
   );
 };
 
-export default PhotoStudio;
+export default PhotoStudioCatalog;
