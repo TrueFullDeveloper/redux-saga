@@ -12,7 +12,7 @@ const Header = () => {
       </div>
 
       <div>
-        <Link to="/photo_studio">Фотостудия</Link>
+        <Link to="/photo_studio_catalog">Фотостудии</Link>
       </div>
 
       {isAuthenticated ? (

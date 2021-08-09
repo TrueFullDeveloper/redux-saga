@@ -7,8 +7,8 @@ export const routesConfig = [
     component: lazy(() => import("../pages/mainPage")),
   },
   {
-    path: "/photo_studio",
-    component: lazy(() => import("../pages/photoStudio")),
+    path: "/photo_studio_catalog",
+    component: lazy(() => import("../pages/photoStudioCatalog")),
   },
   {
     path: "/tour_manager/:tourManagerId",
