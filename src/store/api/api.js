@@ -1,4 +1,10 @@
-import { authData, tourData, tourManagerData, profileData } from "../_fakeData/fakeData";
+import {
+  authData,
+  tourData,
+  tourManagerData,
+  profileData,
+  photoStudioData,
+} from "../_fakeData/fakeData";
 import axios from "axios";
 
 export const Api = {
@@ -93,5 +99,41 @@ export const Api = {
     );
 
     return profileData;
+  },
+
+  // Photo Studio API
+  fetchPhotoStudioList: async () => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
+    );
+
+    return photoStudioData.photoStudioList;
+  },
+
+  fetchPhotoStudio: async ({ studioId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { studioId }
+    );
+
+    return photoStudioData;
+  },
+
+  fetchStudioPhotoPackage: async ({ studioId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { studioId }
+    );
+
+    return photoStudioData.studioPhotoPackage;
+  },
+
+  fetchStudioFeedbackList: async ({ studioId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { studioId }
+    );
+
+    return photoStudioData.studioPhotoPackage;
   },
 };
