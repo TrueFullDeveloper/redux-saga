@@ -29,7 +29,8 @@
             "photoStudioArea": "Площадь фотостудии: ",
             "photoStudioWorkHours": "Время работы: ",
             "photoStudioPhone": "Телефон: ",
-            "studioPhotoPackageTitle": "Портфолио фотостудии"
+            "studioPhotoPackageTitle": "Портфолио фотостудии",
+            "feedbackListTitle": "Отзывы"
         }
     },
     "components": {

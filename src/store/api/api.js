@@ -134,6 +134,6 @@ export const Api = {
       { studioId }
     );
 
-    return photoStudioData.studioPhotoPackage;
+    return photoStudioData.studioFeedbackList;
   },
 };

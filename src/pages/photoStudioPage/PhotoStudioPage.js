@@ -6,11 +6,13 @@ import useStudioActions from "../../store/studio/useStudioActions";
 import Header from "../../components/header";
 import PhotoStudioInformation from "../../components/photoStudioInformation";
 import StudioPhotoPackage from "../../components/studioPhotoPackage";
+import FeedbackList from "../../components/feedbackList";
 
 const PhotoStudioPage = () => {
   const photoStudio = useSelector(state => state.studio.photoStudio);
   const studioPhotoPackage = useSelector(state => state.studio.studioPhotoPackage);
   const studioFeedbackList = useSelector(state => state.studio.studioFeedbackList);
+  console.log(studioFeedbackList);
   const { getPhotoStudio } = useStudioActions();
   const { studioId } = useParams();
 
@@ -21,6 +23,7 @@ const PhotoStudioPage = () => {
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
       <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
+      <FeedbackList studioFeedbackList={studioFeedbackList} />
     </>
   );
 };
