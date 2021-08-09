@@ -28,7 +28,8 @@
         "photoStudioPage": {
             "photoStudioArea": "Площадь фотостудии: ",
             "photoStudioWorkHours": "Время работы: ",
-            "photoStudioPhone": "Телефон: "
+            "photoStudioPhone": "Телефон: ",
+            "studioPhotoPackageTitle": "Портфолио фотостудии"
         }
     },
     "components": {

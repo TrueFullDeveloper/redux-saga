@@ -5,6 +5,7 @@ import useStudioActions from "../../store/studio/useStudioActions";
 //Components
 import Header from "../../components/header";
 import PhotoStudioInformation from "../../components/photoStudioInformation";
+import StudioPhotoPackage from "../../components/studioPhotoPackage";
 
 const PhotoStudioPage = () => {
   const photoStudio = useSelector(state => state.studio.photoStudio);
@@ -19,6 +20,7 @@ const PhotoStudioPage = () => {
     <>
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
+      <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
     </>
   );
 };
