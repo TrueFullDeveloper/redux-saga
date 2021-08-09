@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import useStudioActions from "../../store/studio/useStudioActions";
 //Components
-import Loader from "../../components/loader/Loader";
+import Header from "../../components/header/Header";
 
 const PhotoStudio = () => {
-  const loading = false;
+  const photoStudioList = useSelector(state => state.studio.photoStudioList);
+  const { getPhotoStudioList } = useStudioActions();
+
+  useEffect(() => getPhotoStudioList(), []);
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div>PhotoStudio</div>
-        </>
-      )}
+      <Header />
     </>
   );
 };
