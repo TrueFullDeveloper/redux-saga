@@ -110,13 +110,13 @@ export const Api = {
     return photoStudioData.photoStudioList;
   },
 
-  fetchPhotoStudio: async ({ studioId }) => {
+  fetchPhotoStudioInformation: async ({ studioId }) => {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { studioId }
     );
 
-    return photoStudioData;
+    return photoStudioData.photoStudio;
   },
 
   fetchStudioPhotoPackage: async ({ studioId }) => {

@@ -33,13 +33,13 @@ const useTourActions = () => {
       })
       .catch(error => console.log(error));
 
-    await Api.fetchPhotoPackage(tourId)
+    await Api.fetchPhotoPackage({ tourId })
       .then(response => {
         dispatch(fetchPhotoPackage(response));
       })
       .catch(error => console.log(error));
 
-    await Api.fetchTourManager(tourId)
+    await Api.fetchTourManager({ tourId })
       .then(response => {
         dispatch(fetchTourManager(response));
       })
