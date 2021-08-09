@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import useStudioActions from "../../store/studio/useStudioActions";
 //Components
 import Header from "../../components/header/Header";
+import PhotoStudioList from "../../components/photoStudioList/PhotoStudioList";
 
 const PhotoStudioCatalog = () => {
   const photoStudioList = useSelector(state => state.studio.photoStudioList);
@@ -13,6 +14,7 @@ const PhotoStudioCatalog = () => {
   return (
     <>
       <Header />
+      <PhotoStudioList photoStudioList={photoStudioList} />
     </>
   );
 };

@@ -19,6 +19,11 @@
             "photoPackageTitle": "Пакет фотографий:",
             "aboutTourManagerTitle": "Об организаторе:",
             "moreDetailsButton": "Подробнее"
+        },
+        "photoStudioCatalog": {
+            "photoStudioCatalogTitle": "Аренда фотостудий",
+            "numberOfHallTitle": "Количество залов: ",
+            "moreDetailsButton": "Подробнее"
         }
     },
     "components": {
