@@ -11,7 +11,7 @@ const PhotoPackage = ({ photoPackage }) => {
 
       <div>
         {photoPackage.map((photoItem, photoIndex) => (
-          <img src={photoItem} key={photoIndex} alt="No photo(" />
+          <img src={photoItem} key={photoIndex} alt="No photo" />
         ))}
       </div>
     </div>

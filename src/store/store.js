@@ -7,8 +7,10 @@ import { authWatcher } from "./auth/authSagas";
 import { authTimerMiddleware } from "./middlewares/authTimerMiddleware";
 
 const sagaMiddleware = createSagaMiddleware();
+
 export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk, sagaMiddleware, authTimerMiddleware))
 );
+
 sagaMiddleware.run(authWatcher);
