@@ -24,6 +24,11 @@
             "photoStudioCatalogTitle": "Аренда фотостудий",
             "numberOfHallTitle": "Количество залов: ",
             "moreDetailsButton": "Подробнее"
+        },
+        "photoStudioPage": {
+            "photoStudioArea": "Площадь фотостудии: ",
+            "photoStudioWorkHours": "Время работы: ",
+            "photoStudioPhone": "Телефон: "
         }
     },
     "components": {
