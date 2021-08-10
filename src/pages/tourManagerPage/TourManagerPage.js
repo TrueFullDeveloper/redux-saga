@@ -5,6 +5,7 @@ import useTourManagerActions from "../../store/tourManager/useTourManagerActions
 
 import Header from "../../components/header";
 import TourManagerInformation from "../../components/tourManagerInformation";
+import TourList from "../../components/tourList/TourList";
 
 const TourManagerPage = () => {
   const tourManager = useSelector(state => state.tourManager.tourManager);
@@ -18,6 +19,7 @@ const TourManagerPage = () => {
     <>
       <Header />
       <TourManagerInformation tourManager={tourManager} />
+      <TourList tourList={managerTourList} />
     </>
   );
 };
