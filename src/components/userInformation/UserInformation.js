@@ -15,10 +15,11 @@ const UserInformation = ({ userProfile }) => {
         {userProfile.lastName ? <h1>{userProfile.lastName}</h1> : null}
         <h2>{userProfile.role}</h2>
       </div>
-      <h3>{t("pages.profile.aboutUserTitle")}</h3>
+      <h3>{t("pages.userPage.aboutUserTitle")}</h3>
       <p>{userProfile.profileDescription}</p>
-      <span>{t("pages.profile.userLanguagesTitle") + userProfile.userLanguages}</span>
+      <span>{t("pages.userPage.userLanguagesTitle") + userProfile.userLanguages}</span>
     </div>
   );
 };
+
 export default UserInformation;
