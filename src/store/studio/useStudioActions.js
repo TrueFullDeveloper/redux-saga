@@ -50,10 +50,10 @@ const useStudioActions = () => {
       });
   };
 
-  const sendFeedback = async () => {
+  const sendFeedback = async ({ studioId, userId, feedbackText, userRating }) => {
     dispatch(showLoader());
 
-    await Api.addFeedback()
+    await Api.addFeedback({ studioId, userId, feedbackText, userRating })
       .then(response => {
         dispatch(addFeedback(response));
       })

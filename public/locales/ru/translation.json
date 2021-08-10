@@ -30,7 +30,14 @@
             "photoStudioWorkHours": "Время работы: ",
             "photoStudioPhone": "Телефон: ",
             "studioPhotoPackageTitle": "Портфолио фотостудии",
-            "feedbackListTitle": "Отзывы"
+            "feedbackListTitle": "Отзывы", 
+            "ratingNotRequiredError": "Поставьте оценку мероприятию",
+            "feedbackExceedsLimitError": "Отзыв должен содерать меньше 400 символов",
+            "feedbackNotRequiredError": "Напишите отзыв",
+            "feedbackFormTitle": "Оставьте отзыв",
+            "ratingMessage": "Ваша оценка:",
+            "feedbackFormPlaceholder": "Оставьте отзыв",
+            "feedbackFormButton": "Оставить отзыв"
         },
         "profile": {
             "userLanguagesTitle": "Языки: ",
