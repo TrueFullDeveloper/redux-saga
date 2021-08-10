@@ -50,4 +50,10 @@ export const routesConfig = [
     protected: false,
     exact: false,
   },
+  {
+    path: "/not_found",
+    component: lazy(() => import("../pages/notFoundPage")),
+    protected: false,
+    exact: true,
+  },
 ];
