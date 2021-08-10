@@ -35,6 +35,10 @@
         "profile": {
             "userLanguagesTitle": "Языки: ",
             "aboutUserTitle": "Обо мне: "
+        },
+        "tourManagerPage": {
+            "managerLanguagesTitle": "Языки: ",
+            "aboutManagerTitle": "Обо мне: "
         }
     },
     "components": {
