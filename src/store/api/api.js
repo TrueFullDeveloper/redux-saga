@@ -4,6 +4,7 @@ import {
   tourManagerData,
   profileData,
   photoStudioData,
+  userProfileData,
 } from "../_fakeData/fakeData";
 import axios from "axios";
 
@@ -135,5 +136,25 @@ export const Api = {
     );
 
     return photoStudioData.studioFeedbackList;
+  },
+
+  // User Profile API
+
+  fetchUserProfile: async ({ userId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { userId }
+    );
+
+    return userProfileData.userProfile;
+  },
+
+  fetchUserFeedbackList: async ({ userId }) => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { userId }
+    );
+
+    return userProfileData.userFeedbackList;
   },
 };

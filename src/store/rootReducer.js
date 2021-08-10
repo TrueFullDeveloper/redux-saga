@@ -6,6 +6,7 @@ import { profileReducer } from "./profile/profileReducer";
 import { studioReducer } from "./studio/studioReducer";
 import { tourReducer } from "./tour/tourReducer";
 import { tourManagerReducer } from "./tourManager/tourManagerReducer";
+import { userProfileReducer } from "./userProfile/userProfileReducer";
 
 export const rootReducer = combineReducers({
   loader: loaderReducer,
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers({
   tourManager: tourManagerReducer,
   profile: profileReducer,
   studio: studioReducer,
+  userProfile: userProfileReducer,
 });

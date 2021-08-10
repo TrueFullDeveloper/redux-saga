@@ -231,3 +231,47 @@ export const photoStudioData = {
     },
   ],
 };
+
+export const userProfileData = {
+  userFeedbackList: [
+    {
+      feedbackId: 0,
+      authorId: 0,
+      authorName: "Альберт",
+      authorPhoto: photoTitle,
+      authorRating: 4,
+      createdAt: "21.04.2021",
+      feedbackText:
+        "Буду краток в форме изложения своего мнения о данном мероприятии: Мероприятие стоищее, не пожалел, что сходил!",
+    },
+    {
+      feedbackId: 1,
+      authorId: 1,
+      authorName: "Альберт",
+      authorPhoto: photoTitle,
+      authorRating: 4,
+      createdAt: "21.04.2021",
+      feedbackText:
+        "Буду краток в форме изложения своего мнения о данном мероприятии: Мероприятие стоищее, не пожалел, что сходил!",
+    },
+    {
+      feedbackId: 2,
+      authorId: 2,
+      authorName: "Альберт",
+      authorPhoto: photoTitle,
+      authorRating: 4,
+      createdAt: "21.04.2021",
+      feedbackText:
+        "Буду краток в форме изложения своего мнения о данном мероприятии: Мероприятие стоищее, не пожалел, что сходил!",
+    },
+  ],
+  userProfile: {
+    photo: tourManagerPhoto,
+    firstName: "Artem",
+    lastName: "Krivchun",
+    role: "Организатор",
+    profileDescription:
+      "Lfsdgag gsdgs dgf gds hsgfhhhhrhqegag gsdgwegbg fg sdfhs gh sj tjs jgf jtj t herahrehrehferdfh herhare hareh aerh rehare hare hre aharehaerh rehareh",
+    userLanguages: "Русский, English",
+  },
+};
