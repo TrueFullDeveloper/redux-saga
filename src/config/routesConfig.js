@@ -51,6 +51,12 @@ export const routesConfig = [
     exact: false,
   },
   {
+    path: "/user_profile/:userId",
+    component: lazy(() => import("../pages/userPage")),
+    protected: false,
+    exact: false,
+  },
+  {
     path: "/not_found",
     component: lazy(() => import("../pages/notFoundPage")),
     protected: false,

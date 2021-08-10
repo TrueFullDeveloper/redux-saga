@@ -1,6 +1,7 @@
 import React from "react";
 //i18n
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const FeedbackList = ({ studioFeedbackList }) => {
   const { t } = useTranslation();
@@ -11,10 +12,12 @@ const FeedbackList = ({ studioFeedbackList }) => {
 
       {studioFeedbackList.map(feedbackItem => (
         <div key={feedbackItem.feedbackId}>
-          <div>
-            <img src={feedbackItem.authorPhoto} alt="No photo(" />
-          </div>
-          <h2>{feedbackItem.authorName}</h2>
+          <Link to={`/user_profile/${feedbackItem.authorId}`}>
+            <div>
+              <img src={feedbackItem.authorPhoto} alt="No photo(" />
+            </div>
+            <h2>{feedbackItem.authorName}</h2>
+          </Link>
           <div>{feedbackItem.authorRating}</div>
           <span>{feedbackItem.createdAt}</span>
           <p>{feedbackItem.feedbackText}</p>
