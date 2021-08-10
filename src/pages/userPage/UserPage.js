@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useUserProfileActions from "../../store/userProfile/useUserProfileActions";
 
 import Header from "../../components/header";
+import FeedbackList from "../../components/feedbackList";
 
 const UserPage = () => {
   const userProfile = useSelector(state => state.userProfile.userProfile);
@@ -16,6 +17,7 @@ const UserPage = () => {
   return (
     <>
       <Header />
+      <FeedbackList feedbackList={userFeedbackList} />
     </>
   );
 };

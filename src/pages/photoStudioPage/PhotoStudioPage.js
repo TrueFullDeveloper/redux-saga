@@ -22,7 +22,7 @@ const PhotoStudioPage = () => {
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
       <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
-      <FeedbackList studioFeedbackList={studioFeedbackList} />
+      <FeedbackList feedbackList={studioFeedbackList} />
     </>
   );
 };

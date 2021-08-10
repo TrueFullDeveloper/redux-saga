@@ -3,14 +3,14 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const FeedbackList = ({ studioFeedbackList }) => {
+const FeedbackList = ({ feedbackList }) => {
   const { t } = useTranslation();
 
   return (
     <div>
       <h1>{t("pages.photoStudioPage.feedbackListTitle")}</h1>
 
-      {studioFeedbackList.map(feedbackItem => (
+      {feedbackList.map(feedbackItem => (
         <div key={feedbackItem.feedbackId}>
           <Link to={`/user_profile/${feedbackItem.authorId}`}>
             <div>
