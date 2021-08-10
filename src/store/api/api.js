@@ -6,12 +6,12 @@ import {
   photoStudioData,
   userProfileData,
 } from "../_fakeData/fakeData";
-import axios from "axios";
+import { instance } from "../../config/apiConfig";
 
 export const Api = {
   // Auth API
   login: async ({ email, password }) => {
-    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
       email,
       password,
     });
@@ -20,7 +20,7 @@ export const Api = {
   },
 
   signup: async ({ email, password, userName }) => {
-    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
       email,
       password,
       userName,
@@ -30,7 +30,7 @@ export const Api = {
   },
 
   tokenUpdate: async ({ userToken }) => {
-    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
       userToken,
     });
 
@@ -39,7 +39,7 @@ export const Api = {
 
   // Tour API
   fetchTourList: async () => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
     );
 
@@ -47,7 +47,7 @@ export const Api = {
   },
 
   fetchTourInformation: async ({ tourId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { tourId }
     );
@@ -56,7 +56,7 @@ export const Api = {
   },
 
   fetchPhotoPackage: async ({ tourId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { tourId }
     );
@@ -65,7 +65,7 @@ export const Api = {
   },
 
   fetchTourManager: async ({ tourId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { tourId }
     );
@@ -75,7 +75,7 @@ export const Api = {
 
   // Tour Manger Profile API
   fetchTourManagerProfile: async ({ tourManagerId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { tourManagerId }
     );
@@ -84,7 +84,7 @@ export const Api = {
   },
 
   fetchTourManagerTourList: async ({ tourManagerId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { tourManagerId }
     );
@@ -94,7 +94,7 @@ export const Api = {
 
   // Profile API
   fetchProfile: async ({ userId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { userId }
     );
@@ -104,7 +104,7 @@ export const Api = {
 
   // Photo Studio API
   fetchPhotoStudioList: async () => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
     );
 
@@ -112,7 +112,7 @@ export const Api = {
   },
 
   fetchPhotoStudioInformation: async ({ studioId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { studioId }
     );
@@ -121,7 +121,7 @@ export const Api = {
   },
 
   fetchStudioPhotoPackage: async ({ studioId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { studioId }
     );
@@ -130,7 +130,7 @@ export const Api = {
   },
 
   fetchStudioFeedbackList: async ({ studioId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { studioId }
     );
@@ -139,7 +139,7 @@ export const Api = {
   },
 
   addFeedback: async ({ studioId, userId, feedbackText, userRating }) => {
-    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
       studioId,
       userId,
       feedbackText,
@@ -152,7 +152,7 @@ export const Api = {
   // User Profile API
 
   fetchUserProfile: async ({ userId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { userId }
     );
@@ -161,7 +161,7 @@ export const Api = {
   },
 
   fetchUserFeedbackList: async ({ userId }) => {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
       { userId }
     );
