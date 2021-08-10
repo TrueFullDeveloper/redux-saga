@@ -138,6 +138,16 @@ export const Api = {
     return photoStudioData.studioFeedbackList;
   },
 
+  addFeedback: async ({ studioId, userId, feedbackText }) => {
+    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      studioId,
+      userId,
+      feedbackText,
+    });
+
+    return photoStudioData.studioFeedbackList;
+  },
+
   // User Profile API
 
   fetchUserProfile: async ({ userId }) => {

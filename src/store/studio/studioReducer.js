@@ -3,6 +3,7 @@ import {
   FETCH_PHOTO_STUDIO_INFORMATION,
   FETCH_PHOTO_STUDIO_PHOTO_PACKAGE,
   FETCH_PHOTO_STUDIO_FEEDBACK_LIST,
+  ADD_FEEDBACK,
 } from "./studioActions";
 
 const initialState = {
@@ -35,6 +36,7 @@ export const studioReducer = (state = initialState, action) => {
     case FETCH_PHOTO_STUDIO_PHOTO_PACKAGE:
       return { ...state, studioPhotoPackage: action.payload };
     case FETCH_PHOTO_STUDIO_FEEDBACK_LIST:
+    case ADD_FEEDBACK:
       return { ...state, studioFeedbackList: action.payload };
     default:
       return state;

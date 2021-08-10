@@ -2,6 +2,7 @@ export const FETCH_PHOTO_STUDIO_LIST = "FETCH_PHOTO_STUDIO_LIST";
 export const FETCH_PHOTO_STUDIO_INFORMATION = "FETCH_PHOTO_STUDIO_INFORMATION";
 export const FETCH_PHOTO_STUDIO_PHOTO_PACKAGE = "FETCH_PHOTO_STUDIO_PHOTO_PACKAGE";
 export const FETCH_PHOTO_STUDIO_FEEDBACK_LIST = "FETCH_PHOTO_STUDIO_FEEDBACK_LIST";
+export const ADD_FEEDBACK = "ADD_FEEDBACK";
 
 export const fetchPhotoStudioList = payload => {
   return {
@@ -27,6 +28,13 @@ export const fetchStudioPhotoPackage = payload => {
 export const fetchStudioFeedbackList = payload => {
   return {
     type: FETCH_PHOTO_STUDIO_FEEDBACK_LIST,
+    payload,
+  };
+};
+
+export const addFeedback = payload => {
+  return {
+    type: ADD_FEEDBACK,
     payload,
   };
 };

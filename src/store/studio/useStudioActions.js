@@ -6,6 +6,7 @@ import {
   fetchPhotoStudioInformation,
   fetchStudioPhotoPackage,
   fetchStudioFeedbackList,
+  addFeedback,
 } from "./studioActions";
 
 const useStudioActions = () => {
@@ -49,7 +50,20 @@ const useStudioActions = () => {
       });
   };
 
-  return { getPhotoStudioList, getPhotoStudio };
+  const sendFeedback = async () => {
+    dispatch(showLoader());
+
+    await Api.addFeedback()
+      .then(response => {
+        dispatch(addFeedback(response));
+      })
+      .catch(error => console.log(error))
+      .finally(() => {
+        dispatch(hideLoader());
+      });
+  };
+
+  return { getPhotoStudioList, getPhotoStudio, sendFeedback };
 };
 
 export default useStudioActions;
