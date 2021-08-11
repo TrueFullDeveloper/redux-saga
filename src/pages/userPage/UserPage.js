@@ -9,7 +9,7 @@ import UserInformation from "../../components/userInformation";
 
 const UserPage = () => {
   const userProfile = useSelector(state => state.userProfile.userProfile);
-  const userFeedbackList = useSelector(state => state.userProfile.userFeedbackList);
+  //const userFeedbackList = useSelector(state => state.userProfile.userFeedbackList);
   const { getUserProfile } = useUserProfileActions();
   const { userId } = useParams();
 
@@ -19,7 +19,7 @@ const UserPage = () => {
     <>
       <Header />
       <UserInformation userProfile={userProfile} />
-      <FeedbackList feedbackList={userFeedbackList} />
+      {/* <FeedbackList feedbackList={userFeedbackList} /> */}
     </>
   );
 };

@@ -3,8 +3,6 @@ import {
   FETCH_TOUR_INFORMATION,
   FETCH_PHOTO_PACKAGE,
   FETCH_TOUR_MANAGER,
-  FETCH_TOUR_FEEDBACK_LIST,
-  ADD_FEEDBACK,
 } from "./tourActions";
 
 const initialState = {
@@ -29,16 +27,6 @@ const initialState = {
     speciality: null,
     managerDescription: null,
   },
-  tourFeedbackList: [],
-  userFeedback: {
-    feedbackId: null,
-    authorId: null,
-    authorName: null,
-    authorPhoto: null,
-    authorRating: null,
-    createdAt: null,
-    feedbackText: null,
-  },
 };
 
 export const tourReducer = (state = initialState, action) => {
@@ -51,13 +39,7 @@ export const tourReducer = (state = initialState, action) => {
       return { ...state, photoPackage: action.payload };
     case FETCH_TOUR_MANAGER:
       return { ...state, tourManager: action.payload };
-    case FETCH_TOUR_FEEDBACK_LIST:
-    case ADD_FEEDBACK:
-      return {
-        ...state,
-        tourFeedbackList: action.payload.tourFeedbackList,
-        userFeedback: action.payload.userFeedback,
-      };
+
     default:
       return state;
   }

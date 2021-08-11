@@ -5,7 +5,7 @@ import useStudioActions from "../../store/studio/useStudioActions";
 //i18n
 import { useTranslation } from "react-i18next";
 
-const FeedbackForm = ({ userId, pageId }) => {
+const FeedbackForm = ({ id }) => {
   const { t } = useTranslation();
   const { sendFeedback } = useStudioActions();
   const [isRate, setRate] = useState(false);
@@ -30,7 +30,7 @@ const FeedbackForm = ({ userId, pageId }) => {
     }),
 
     onSubmit: ({ feedbackText, userRating }) => {
-      sendFeedback({ studioId: pageId, userId, feedbackText, userRating });
+      //sendFeedback({ id, feedbackText, userRating });
     },
   });
 

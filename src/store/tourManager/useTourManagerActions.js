@@ -6,16 +6,16 @@ import { fetchTourManagerProfile, fetchTourManagerTourList } from "./tourManager
 const useTourManagerActions = () => {
   const dispatch = useDispatch();
 
-  const getTourManagerProfile = async ({ tourManagerId }) => {
+  const getTourManagerProfile = ({ tourManagerId }) => {
     dispatch(showLoader());
 
-    await Api.fetchTourManagerProfile({ tourManagerId })
+    Api.fetchTourManagerProfile({ tourManagerId })
       .then(response => {
         dispatch(fetchTourManagerProfile(response));
       })
       .catch(error => console.log(error));
 
-    await Api.fetchTourManagerTourList({ tourManagerId })
+    Api.fetchTourManagerTourList({ tourManagerId })
       .then(response => {
         dispatch(fetchTourManagerTourList(response));
       })

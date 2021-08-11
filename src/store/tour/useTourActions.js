@@ -6,16 +6,15 @@ import {
   fetchTourInformation,
   fetchPhotoPackage,
   fetchTourManager,
-  fetchTourFeedbackList,
 } from "./tourActions";
 
 const useTourActions = () => {
   const dispatch = useDispatch();
 
-  const getTourList = async () => {
+  const getTourList = () => {
     dispatch(showLoader());
 
-    await Api.fetchTourList()
+    Api.fetchTourList()
       .then(response => {
         dispatch(fetchTourList(response));
       })
@@ -25,30 +24,24 @@ const useTourActions = () => {
       });
   };
 
-  const getTour = async ({ tourId }) => {
+  const getTour = ({ tourId }) => {
     dispatch(showLoader());
 
-    await Api.fetchTourInformation({ tourId })
+    Api.fetchTourInformation({ tourId })
       .then(response => {
         dispatch(fetchTourInformation(response));
       })
       .catch(error => console.log(error));
 
-    await Api.fetchPhotoPackage({ tourId })
+    Api.fetchPhotoPackage({ tourId })
       .then(response => {
         dispatch(fetchPhotoPackage(response));
       })
       .catch(error => console.log(error));
 
-    await Api.fetchTourManager({ tourId })
+    Api.fetchTourManager({ tourId })
       .then(response => {
         dispatch(fetchTourManager(response));
-      })
-      .catch(error => console.log(error));
-
-    await Api.fetchTourFeedbackList({ tourId })
-      .then(response => {
-        dispatch(fetchTourFeedbackList(response));
       })
       .catch(error => console.log(error))
       .finally(() => {

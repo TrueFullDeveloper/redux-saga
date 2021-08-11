@@ -6,10 +6,10 @@ import { fetchProfile } from "./profileActions";
 const useProfileActions = () => {
   const dispatch = useDispatch();
 
-  const getProfile = async ({ userId }) => {
+  const getProfile = () => {
     dispatch(showLoader());
 
-    await Api.fetchProfile({ userId })
+    Api.fetchProfile()
       .then(response => {
         dispatch(fetchProfile(response));
       })

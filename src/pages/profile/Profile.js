@@ -7,10 +7,9 @@ import ProfileInformation from "../../components/profileInformation";
 
 const Profile = () => {
   const profile = useSelector(state => state.profile);
-  const userId = useSelector(state => state.auth.userId);
   const { getProfile } = useProfileActions();
 
-  useEffect(() => getProfile({ userId }), []);
+  useEffect(() => getProfile(), []);
 
   return (
     <>

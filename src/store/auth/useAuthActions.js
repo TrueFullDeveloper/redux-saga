@@ -7,10 +7,10 @@ import { login, signup, tokenUpdate } from "./authActions";
 const useAuthActions = () => {
   const dispatch = useDispatch();
 
-  const doLogin = async ({ email, password }) => {
+  const doLogin = ({ email, password }) => {
     dispatch(showLoader());
 
-    await Api.login({ email, password })
+    Api.login({ email, password })
       .then(response => {
         dispatch(login(response));
       })
@@ -20,10 +20,10 @@ const useAuthActions = () => {
       });
   };
 
-  const doSignup = async ({ email, password, userName }) => {
+  const doSignup = ({ email, password, userName }) => {
     dispatch(showLoader());
 
-    await Api.signup({ email, password, userName })
+    Api.signup({ email, password, userName })
       .then(response => {
         dispatch(signup(response));
       })
@@ -33,13 +33,13 @@ const useAuthActions = () => {
       });
   };
 
-  const doTokenUpdate = async () => {
+  const doTokenUpdate = () => {
     const userToken = localStorage.getItem(USER_TOKEN);
 
-    if (!!userToken) {
+    if (userToken) {
       dispatch(showLoader());
 
-      await Api.tokenUpdate({ userToken })
+      Api.tokenUpdate({ userToken })
         .then(response => {
           dispatch(tokenUpdate(response));
         })

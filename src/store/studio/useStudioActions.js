@@ -5,17 +5,15 @@ import {
   fetchPhotoStudioList,
   fetchPhotoStudioInformation,
   fetchStudioPhotoPackage,
-  fetchStudioFeedbackList,
-  addFeedback,
 } from "./studioActions";
 
 const useStudioActions = () => {
   const dispatch = useDispatch();
 
-  const getPhotoStudioList = async () => {
+  const getPhotoStudioList = () => {
     dispatch(showLoader());
 
-    await Api.fetchPhotoStudioList()
+    Api.fetchPhotoStudioList()
       .then(response => {
         dispatch(fetchPhotoStudioList(response));
       })
@@ -25,45 +23,26 @@ const useStudioActions = () => {
       });
   };
 
-  const getPhotoStudio = async ({ studioId }) => {
+  const getPhotoStudio = ({ studioId }) => {
     dispatch(showLoader());
 
-    await Api.fetchPhotoStudioInformation({ studioId })
+    Api.fetchPhotoStudioInformation({ studioId })
       .then(response => {
         dispatch(fetchPhotoStudioInformation(response));
       })
       .catch(error => console.log(error));
 
-    await Api.fetchStudioPhotoPackage({ studioId })
+    Api.fetchStudioPhotoPackage({ studioId })
       .then(response => {
         dispatch(fetchStudioPhotoPackage(response));
       })
-      .catch(error => console.log(error));
-
-    await Api.fetchStudioFeedbackList({ studioId })
-      .then(response => {
-        dispatch(fetchStudioFeedbackList(response));
-      })
       .catch(error => console.log(error))
       .finally(() => {
         dispatch(hideLoader());
       });
   };
 
-  const sendFeedback = async ({ studioId, userId, feedbackText, userRating }) => {
-    dispatch(showLoader());
-
-    await Api.addFeedback({ studioId, userId, feedbackText, userRating })
-      .then(response => {
-        dispatch(addFeedback(response));
-      })
-      .catch(error => console.log(error))
-      .finally(() => {
-        dispatch(hideLoader());
-      });
-  };
-
-  return { getPhotoStudioList, getPhotoStudio, sendFeedback };
+  return { getPhotoStudioList, getPhotoStudio };
 };
 
 export default useStudioActions;

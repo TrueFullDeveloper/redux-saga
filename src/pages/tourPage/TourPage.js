@@ -15,10 +15,9 @@ const TourPage = () => {
   const tourInformation = useSelector(state => state.tour.tourInformation);
   const photoPackage = useSelector(state => state.tour.photoPackage);
   const tourManager = useSelector(state => state.tour.tourManager);
-  const tourFeedbackList = useSelector(state => state.tour.tourFeedbackList);
-  const userFeedback = useSelector(state => state.tour.userFeedback);
+  // const tourFeedbackList = useSelector(state => state.tour.tourFeedbackList);
+  // const userFeedback = useSelector(state => state.tour.userFeedback);
 
-  const userId = useSelector(state => state.auth.userId);
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   const { getTour } = useTourActions();
@@ -32,9 +31,9 @@ const TourPage = () => {
       <TourInformation tourInformation={tourInformation} />
       <PhotoPackage photoPackage={photoPackage} />
       <TourManager tourManager={tourManager} />
-      {!userFeedback && isAuthenticated ? <FeedbackForm pageId={tourId} userId={userId} /> : null}
+      {/* {!userFeedback && isAuthenticated ? <FeedbackForm id={tourId} /> : null}
       {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
-      <FeedbackList feedbackList={tourFeedbackList} />
+      <FeedbackList feedbackList={tourFeedbackList} /> */}
     </>
   );
 };
