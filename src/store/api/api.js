@@ -73,6 +73,53 @@ export const Api = {
     return tourData.tourManager;
   },
 
+  fetchTourFeedbackList: async ({ id }) => {
+    const response = await instance.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { id }
+    );
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  addTourFeedback: async ({ id, feedbackText, userRating }) => {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  editTourFeedback: async ({ id, feedbackText, userRating }) => {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  deleteTourFeedback: async ({ id }) => {
+    const response = await instance.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
   // Tour Manger Profile API
   fetchTourManagerProfile: async ({ tourManagerId }) => {
     const response = await instance.get(
@@ -128,6 +175,52 @@ export const Api = {
     return photoStudioData.studioPhotoPackage;
   },
 
+  fetchPhotoStudioFeedbackList: async ({ id }) => {
+    const response = await instance.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { id }
+    );
+
+    return {
+      tourFeedbackList: photoStudioData.studioFeedbackList,
+      userFeedback: photoStudioData.userFeedback,
+    };
+  },
+
+  addPhotoStudioFeedback: async ({ id, feedbackText, userRating }) => {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: photoStudioData.studioFeedbackList,
+      userFeedback: photoStudioData.userFeedback,
+    };
+  },
+
+  editPhotoStudioFeedback: async ({ id, feedbackText, userRating }) => {
+    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: photoStudioData.studioFeedbackList,
+      userFeedback: photoStudioData.userFeedback,
+    };
+  },
+
+  deletePhotoStudioFeedback: async ({ id }) => {
+    const response = await instance.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+    return {
+      tourFeedbackList: photoStudioData.studioFeedbackList,
+      userFeedback: photoStudioData.userFeedback,
+    };
+  },
   // User Profile API
 
   fetchUserProfile: async ({ userId }) => {
@@ -146,45 +239,5 @@ export const Api = {
     );
 
     return userProfileData.userFeedbackList;
-  },
-
-  // Feedback API
-
-  fetchFeedbackList: async ({ pageId }) => {
-    const response = await instance.get(
-      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
-      { pageId }
-    );
-
-    return {
-      tourFeedbackList: tourData.tourFeedbackList,
-      userFeedback: tourData.userFeedback,
-    };
-  },
-
-  addFeedback: async ({ pageId, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      pageId,
-      feedbackText,
-      userRating,
-    });
-
-    return photoStudioData.studioFeedbackList;
-  },
-
-  editFeedback: async ({ pageId, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      pageId,
-      feedbackText,
-      userRating,
-    });
-
-    return photoStudioData.studioFeedbackList;
-  },
-
-  deleteFeedback: async ({ id }) => {
-    const response = await instance.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
-    return photoStudioData.studioFeedbackList;
   },
 };
