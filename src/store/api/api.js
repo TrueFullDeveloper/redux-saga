@@ -6,10 +6,10 @@ import {
   photoStudioData,
   userProfileData,
 } from "../_fakeData/fakeData";
-import { instance } from "../../config/apiConfig";
+import { instance } from "./apiConfig";
 
 export const Api = {
-  // Auth API
+  //! Auth API
   login: async ({ email, password }) => {
     const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
       email,
@@ -37,7 +37,7 @@ export const Api = {
     return { userId: authData.userId, userToken: authData.userToken };
   },
 
-  // Tour API
+  //! Tour API
   fetchTourList: async () => {
     const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
@@ -73,54 +73,7 @@ export const Api = {
     return tourData.tourManager;
   },
 
-  fetchTourFeedbackList: async ({ id }) => {
-    const response = await instance.get(
-      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
-      { id }
-    );
-
-    return {
-      tourFeedbackList: tourData.tourFeedbackList,
-      userFeedback: tourData.userFeedback,
-    };
-  },
-
-  addTourFeedback: async ({ id, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      id,
-      feedbackText,
-      userRating,
-    });
-
-    return {
-      tourFeedbackList: tourData.tourFeedbackList,
-      userFeedback: tourData.userFeedback,
-    };
-  },
-
-  editTourFeedback: async ({ id, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      id,
-      feedbackText,
-      userRating,
-    });
-
-    return {
-      tourFeedbackList: tourData.tourFeedbackList,
-      userFeedback: tourData.userFeedback,
-    };
-  },
-
-  deleteTourFeedback: async ({ id }) => {
-    const response = await instance.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
-    return {
-      tourFeedbackList: tourData.tourFeedbackList,
-      userFeedback: tourData.userFeedback,
-    };
-  },
-
-  // Tour Manger Profile API
+  //! Tour Manger Profile API
   fetchTourManagerProfile: async ({ tourManagerId }) => {
     const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
@@ -139,7 +92,7 @@ export const Api = {
     return tourManagerData.managerTourList;
   },
 
-  // Profile API
+  //! Profile API
   fetchProfile: async () => {
     const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
@@ -148,7 +101,7 @@ export const Api = {
     return profileData;
   },
 
-  // Photo Studio API
+  //! Photo Studio API
   fetchPhotoStudioList: async () => {
     const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5"
@@ -175,54 +128,7 @@ export const Api = {
     return photoStudioData.studioPhotoPackage;
   },
 
-  fetchPhotoStudioFeedbackList: async ({ id }) => {
-    const response = await instance.get(
-      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
-      { id }
-    );
-
-    return {
-      tourFeedbackList: photoStudioData.studioFeedbackList,
-      userFeedback: photoStudioData.userFeedback,
-    };
-  },
-
-  addPhotoStudioFeedback: async ({ id, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      id,
-      feedbackText,
-      userRating,
-    });
-
-    return {
-      tourFeedbackList: photoStudioData.studioFeedbackList,
-      userFeedback: photoStudioData.userFeedback,
-    };
-  },
-
-  editPhotoStudioFeedback: async ({ id, feedbackText, userRating }) => {
-    const response = await instance.post("https://jsonplaceholder.typicode.com/posts", {
-      id,
-      feedbackText,
-      userRating,
-    });
-
-    return {
-      tourFeedbackList: photoStudioData.studioFeedbackList,
-      userFeedback: photoStudioData.userFeedback,
-    };
-  },
-
-  deletePhotoStudioFeedback: async ({ id }) => {
-    const response = await instance.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
-    return {
-      tourFeedbackList: photoStudioData.studioFeedbackList,
-      userFeedback: photoStudioData.userFeedback,
-    };
-  },
-  // User Profile API
-
+  //! User Profile API
   fetchUserProfile: async ({ userId }) => {
     const response = await instance.get(
       "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
@@ -232,12 +138,55 @@ export const Api = {
     return userProfileData.userProfile;
   },
 
-  fetchUserFeedbackList: async ({ userId }) => {
+  //! Feedback API
+  fetchFeedbackList: async ({ id, type }) => {
+    type = "todos"; // Careful!!!
     const response = await instance.get(
-      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
-      { userId }
+      `https://jsonplaceholder.typicode.com/${type}/?_start=0&_limit=5`,
+      { id }
     );
 
-    return userProfileData.userFeedbackList;
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  addFeedback: async ({ id, type, feedbackText, userRating }) => {
+    type = "posts"; // Careful!!!
+    const response = await instance.post(`https://jsonplaceholder.typicode.com/${type}`, {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  editFeedback: async ({ id, type, feedbackText, userRating }) => {
+    type = "posts"; // Careful!!!
+    const response = await instance.post(`https://jsonplaceholder.typicode.com/${type}`, {
+      id,
+      feedbackText,
+      userRating,
+    });
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
+  deleteFeedback: async ({ id, type }) => {
+    type = "posts"; // Carefull!!!
+    const response = await instance.delete(`https://jsonplaceholder.typicode.com/${type}/${id}`);
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
   },
 };
