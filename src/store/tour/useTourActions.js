@@ -6,6 +6,7 @@ import {
   fetchTourInformation,
   fetchPhotoPackage,
   fetchTourManager,
+  fetchTourFeedbackList,
 } from "./tourActions";
 
 const useTourActions = () => {
@@ -42,6 +43,12 @@ const useTourActions = () => {
     await Api.fetchTourManager({ tourId })
       .then(response => {
         dispatch(fetchTourManager(response));
+      })
+      .catch(error => console.log(error));
+
+    await Api.fetchTourFeedbackList({ tourId })
+      .then(response => {
+        dispatch(fetchTourFeedbackList(response));
       })
       .catch(error => console.log(error))
       .finally(() => {

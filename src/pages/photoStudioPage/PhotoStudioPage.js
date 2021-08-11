@@ -28,11 +28,8 @@ const PhotoStudioPage = () => {
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
       <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
-      {!userFeedback && isAuthenticated ? (
-        <FeedbackForm studioId={studioId} userId={userId} />
-      ) : null}
+      {!userFeedback && isAuthenticated ? <FeedbackForm pageId={studioId} userId={userId} /> : null}
       {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
-      <FeedbackForm studioId={studioId} userId={userId} />
       <FeedbackList feedbackList={studioFeedbackList} />
     </>
   );

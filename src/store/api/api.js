@@ -73,6 +73,18 @@ export const Api = {
     return tourData.tourManager;
   },
 
+  fetchTourFeedbackList: async ({ tourId }) => {
+    const response = await instance.get(
+      "https://jsonplaceholder.typicode.com/todos/?_start=0&_limit=5",
+      { tourId }
+    );
+
+    return {
+      tourFeedbackList: tourData.tourFeedbackList,
+      userFeedback: tourData.userFeedback,
+    };
+  },
+
   // Tour Manger Profile API
   fetchTourManagerProfile: async ({ tourManagerId }) => {
     const response = await instance.get(
