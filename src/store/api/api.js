@@ -147,7 +147,7 @@ export const Api = {
     );
 
     return {
-      tourFeedbackList: tourData.tourFeedbackList,
+      feedbackList: tourData.tourFeedbackList,
       userFeedback: tourData.userFeedback,
     };
   },
@@ -161,7 +161,7 @@ export const Api = {
     });
 
     return {
-      tourFeedbackList: tourData.tourFeedbackList,
+      feedbackList: tourData.tourFeedbackList,
       userFeedback: tourData.userFeedback,
     };
   },
@@ -175,7 +175,7 @@ export const Api = {
     });
 
     return {
-      tourFeedbackList: tourData.tourFeedbackList,
+      feedbackList: tourData.tourFeedbackList,
       userFeedback: tourData.userFeedback,
     };
   },
@@ -185,7 +185,7 @@ export const Api = {
     const response = await instance.delete(`https://jsonplaceholder.typicode.com/${type}/${id}`);
 
     return {
-      tourFeedbackList: tourData.tourFeedbackList,
+      feedbackList: tourData.tourFeedbackList,
       userFeedback: tourData.userFeedback,
     };
   },

@@ -12,7 +12,11 @@ import {
 
 const initialState = {
   tourFeedbackList: [],
+  userTourFeedback: null,
+
   photoStudioFeedbackList: [],
+  userStudioFeedback: null,
+
   userFeedbackList: [],
 };
 
@@ -24,7 +28,8 @@ export const profileReducer = (state = initialState, action) => {
     case DELETE_TOUR_FEEDBACK:
       return {
         ...state,
-        userFeedbackList: action.payload,
+        userFeedbackList: action.payload.feedbackList,
+        userTourFeedback: action.payload.userFeedback,
       };
 
     case FETCH_PHOTO_STUDIO_FEEDBACK_LIST:
@@ -33,13 +38,14 @@ export const profileReducer = (state = initialState, action) => {
     case DELETE_PHOTO_STUDIO_FEEDBACK:
       return {
         ...state,
-        photoStudioFeedbackList: action.payload,
+        photoStudioFeedbackList: action.payload.feedbackList,
+        userStudioFeedback: action.payload.userFeedback,
       };
 
     case FETCH_USER_FEEDBACK_LIST:
       return {
         ...state,
-        userFeedbackList: action.payload,
+        userFeedbackList: action.payload.feedbackList,
       };
 
     default:
