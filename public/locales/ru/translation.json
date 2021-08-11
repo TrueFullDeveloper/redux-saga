@@ -37,7 +37,8 @@
             "feedbackFormTitle": "Оставьте отзыв",
             "ratingMessage": "Ваша оценка:",
             "feedbackFormPlaceholder": "Оставьте отзыв",
-            "feedbackFormButton": "Оставить отзыв"
+            "feedbackFormButton": "Оставить отзыв",
+            "userFeedbackTitle": "Ваш отзыв"
         },
         "profile": {
             "userLanguagesTitle": "Языки: ",

@@ -8,6 +8,7 @@ import PhotoStudioInformation from "../../components/photoStudioInformation";
 import StudioPhotoPackage from "../../components/studioPhotoPackage";
 import FeedbackList from "../../components/feedbackList";
 import FeedbackForm from "../../components/feedbackForm/FeedbackForm";
+import UserFeedback from "../../components/userFeedback";
 
 const PhotoStudioPage = () => {
   const photoStudio = useSelector(state => state.studio.photoStudio);
@@ -16,6 +17,7 @@ const PhotoStudioPage = () => {
   const userFeedback = useSelector(state => state.studio.userFeedback);
 
   const userId = useSelector(state => state.auth.userId);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const { getPhotoStudio } = useStudioActions();
   const { studioId } = useParams();
 
@@ -26,6 +28,10 @@ const PhotoStudioPage = () => {
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
       <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
+      {!userFeedback && isAuthenticated ? (
+        <FeedbackForm studioId={studioId} userId={userId} />
+      ) : null}
+      {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
       <FeedbackForm studioId={studioId} userId={userId} />
       <FeedbackList feedbackList={studioFeedbackList} />
     </>
