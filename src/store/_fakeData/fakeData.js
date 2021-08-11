@@ -230,6 +230,16 @@ export const photoStudioData = {
         "Буду краток в форме изложения своего мнения о данном мероприятии: Мероприятие стоищее, не пожалел, что сходил!",
     },
   ],
+  userFeedback: {
+    feedbackId: 6,
+    authorId: 6,
+    authorName: "Альберт",
+    authorPhoto: photoTitle,
+    authorRating: 4,
+    createdAt: "21.04.2021",
+    feedbackText:
+      "Буду краток в форме изложения своего мнения о данном мероприятии: Мероприятие стоищее, не пожалел, что сходил!",
+  },
 };
 
 export const userProfileData = {

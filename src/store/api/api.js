@@ -135,7 +135,10 @@ export const Api = {
       { studioId }
     );
 
-    return photoStudioData.studioFeedbackList;
+    return {
+      studioFeedbackList: photoStudioData.studioFeedbackList,
+      userFeedback: photoStudioData.userFeedback,
+    };
   },
 
   addFeedback: async ({ studioId, userId, feedbackText, userRating }) => {

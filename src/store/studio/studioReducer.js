@@ -25,6 +25,15 @@ const initialState = {
   },
   studioPhotoPackage: [],
   studioFeedbackList: [],
+  userFeedback: {
+    feedbackId: null,
+    authorId: null,
+    authorName: null,
+    authorPhoto: null,
+    authorRating: null,
+    createdAt: null,
+    feedbackText: null,
+  },
 };
 
 export const studioReducer = (state = initialState, action) => {
@@ -37,7 +46,11 @@ export const studioReducer = (state = initialState, action) => {
       return { ...state, studioPhotoPackage: action.payload };
     case FETCH_PHOTO_STUDIO_FEEDBACK_LIST:
     case ADD_FEEDBACK:
-      return { ...state, studioFeedbackList: action.payload };
+      return {
+        ...state,
+        studioFeedbackList: action.payload.studioFeedbackList,
+        userFeedback: action.payload.userFeedback,
+      };
     default:
       return state;
   }

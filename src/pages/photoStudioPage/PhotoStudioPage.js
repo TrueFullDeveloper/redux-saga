@@ -13,6 +13,8 @@ const PhotoStudioPage = () => {
   const photoStudio = useSelector(state => state.studio.photoStudio);
   const studioPhotoPackage = useSelector(state => state.studio.studioPhotoPackage);
   const studioFeedbackList = useSelector(state => state.studio.studioFeedbackList);
+  const userFeedback = useSelector(state => state.studio.userFeedback);
+
   const userId = useSelector(state => state.auth.userId);
   const { getPhotoStudio } = useStudioActions();
   const { studioId } = useParams();
