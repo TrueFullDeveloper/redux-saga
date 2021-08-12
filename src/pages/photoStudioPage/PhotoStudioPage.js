@@ -27,7 +27,7 @@ const PhotoStudioPage = () => {
 
   useEffect(() => {
     getPhotoStudio({ studioId });
-    getFeedbackList(studioId);
+    getFeedbackList({ id: studioId });
   }, []);
 
   return (

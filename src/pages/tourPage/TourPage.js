@@ -29,7 +29,7 @@ const TourPage = () => {
 
   useEffect(() => {
     getTour({ tourId });
-    getFeedbackList(tourId);
+    getFeedbackList({ id: tourId });
   }, []);
 
   return (

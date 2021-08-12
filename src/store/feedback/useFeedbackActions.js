@@ -6,7 +6,7 @@ import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 const useFeedbackActions = feedbackType => {
   const dispatch = useDispatch();
 
-  const getFeedbackList = id => {
+  const getFeedbackList = ({ id }) => {
     dispatch(addLoaderCall());
 
     Api.fetchFeedbackList({ id, type: feedbackType })
@@ -19,10 +19,10 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const sendFeedback = id => {
+  const sendFeedback = ({ id, feedbackText, userRating }) => {
     dispatch(addLoaderCall());
 
-    Api.addFeedback({ id, type: feedbackType })
+    Api.addFeedback({ id, type: feedbackType, feedbackText, userRating })
       .then(response => {
         dispatch(addFeedback({ ...response, instance: feedbackType }));
       })
@@ -32,10 +32,10 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const changeFeedback = id => {
+  const changeFeedback = ({ id, feedbackText, userRating }) => {
     dispatch(addLoaderCall());
 
-    Api.editFeedback({ id, type: feedbackType })
+    Api.editFeedback({ id, type: feedbackType, feedbackText, userRating })
       .then(response => {
         dispatch(editFeedback({ ...response, instance: feedbackType }));
       })
@@ -45,7 +45,7 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const removeFeedback = id => {
+  const removeFeedback = ({ id }) => {
     dispatch(addLoaderCall());
 
     Api.deleteFeedback({ id, type: feedbackType })

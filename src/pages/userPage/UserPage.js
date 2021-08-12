@@ -20,7 +20,7 @@ const UserPage = () => {
 
   useEffect(() => {
     getUserProfile({ userId });
-    getFeedbackList(userId);
+    getFeedbackList({ id: userId });
   }, []);
 
   return (
