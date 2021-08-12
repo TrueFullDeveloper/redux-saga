@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import { authReducer } from "./auth/authReducer";
+import { feedbackReducer } from "./feedback/feedbackReducer";
 import { loaderReducer } from "./loader/loaderReducer";
 import { profileReducer } from "./profile/profileReducer";
 import { studioReducer } from "./studio/studioReducer";
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers({
   profile: profileReducer,
   studio: studioReducer,
   userProfile: userProfileReducer,
+  feedback: feedbackReducer,
 });

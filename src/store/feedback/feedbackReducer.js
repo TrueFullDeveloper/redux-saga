@@ -17,7 +17,7 @@ const initialState = Object.fromEntries(
   FEEDBACK_INSTANCES.map(instance => [instance, { list: [], my: null }])
 );
 
-export const profileReducer = (state = initialState, action) => {
+export const feedbackReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_FEEDBACK_LIST:
     case ADD_FEEDBACK:

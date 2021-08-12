@@ -2,28 +2,35 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useTourActions from "../../store/tour/useTourActions";
+import useFeedbackActions from "../../store/feedback/useFeedbackActions";
+
+import { feedbackEndpoints } from "../../config/feedbackConfig";
 
 import Header from "../../components/header";
 import TourInformation from "../../components/tourInformation";
-import PhotoPackage from "../../components/photoPackage/PhotoPackage";
-import TourManager from "../../components/tourManager/TourManager";
+import PhotoPackage from "../../components/photoPackage";
+import TourManager from "../../components/tourManager";
 import FeedbackList from "../../components/feedbackList";
-import FeedbackForm from "../../components/feedbackForm/FeedbackForm";
+import FeedbackForm from "../../components/feedbackForm";
 import UserFeedback from "../../components/userFeedback";
 
 const TourPage = () => {
   const tourInformation = useSelector(state => state.tour.tourInformation);
   const photoPackage = useSelector(state => state.tour.photoPackage);
   const tourManager = useSelector(state => state.tour.tourManager);
-  // const tourFeedbackList = useSelector(state => state.tour.tourFeedbackList);
-  // const userFeedback = useSelector(state => state.tour.userFeedback);
+
+  const feedbackList = useSelector(state => state.feedback[feedbackEndpoints.TOUR].list);
+  const userFeedback = useSelector(state => state.feedback[feedbackEndpoints.TOUR].my);
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-
-  const { getTour } = useTourActions();
   const { tourId } = useParams();
+  const { getTour } = useTourActions();
+  const { getFeedbackList } = useFeedbackActions(feedbackEndpoints.TOUR);
 
-  useEffect(() => getTour({ tourId }), []);
+  useEffect(() => {
+    getTour({ tourId });
+    getFeedbackList(tourId);
+  }, []);
 
   return (
     <>
@@ -31,9 +38,9 @@ const TourPage = () => {
       <TourInformation tourInformation={tourInformation} />
       <PhotoPackage photoPackage={photoPackage} />
       <TourManager tourManager={tourManager} />
-      {/* {!userFeedback && isAuthenticated ? <FeedbackForm id={tourId} /> : null}
+      {!userFeedback && isAuthenticated ? <FeedbackForm id={tourId} /> : null}
       {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
-      <FeedbackList feedbackList={tourFeedbackList} /> */}
+      <FeedbackList feedbackList={feedbackList} />
     </>
   );
 };

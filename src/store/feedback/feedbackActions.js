@@ -5,28 +5,28 @@ export const DELETE_FEEDBACK = "DELETE_FEEDBACK";
 
 export const fetchFeedbackList = payload => {
   return {
-    type: FETCH_TOUR_FEEDBACK_LIST,
+    type: FETCH_FEEDBACK_LIST,
     payload,
   };
 };
 
 export const addFeedback = payload => {
   return {
-    type: ADD_TOUR_FEEDBACK,
+    type: ADD_FEEDBACK,
     payload,
   };
 };
 
 export const editFeedback = payload => {
   return {
-    type: EDIT_PHOTO_STUDIO_FEEDBACK,
+    type: EDIT_FEEDBACK,
     payload,
   };
 };
 
 export const deleteFeedback = payload => {
   return {
-    type: DELETE_PHOTO_STUDIO_FEEDBACK,
+    type: DELETE_FEEDBACK,
     payload,
   };
 };
