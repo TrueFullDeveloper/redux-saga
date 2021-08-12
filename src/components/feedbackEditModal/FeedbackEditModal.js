@@ -24,11 +24,11 @@ const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
     },
 
     validationSchema: yup.object({
-      userRating: yup.number().required(t("pages.photoStudioPage.ratingNotRequiredError")),
+      userRating: yup.number().required(t("common.feedback.ratingNotRequiredError")),
       feedbackText: yup
         .string()
-        .max(400, t("pages.photoStudioPage.feedbackExceedsLimitError"))
-        .required(t("pages.photoStudioPage.feedbackNotRequiredError")),
+        .max(400, t("common.feedback.feedbackExceedsLimitError"))
+        .required(t("common.feedback.feedbackNotRequiredError")),
     }),
 
     onSubmit: ({ feedbackText, userRating }) => {
@@ -45,12 +45,12 @@ const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
   return createPortal(
     <div>
       <div></div>
-      <h1>{t("pages.photoStudioPage.feedbackFormTitle")}</h1>
+      <h1>{t("common.feedback.feedbackFormTitle")}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           {isRate ? (
             <span>
-              {t("pages.photoStudioPage.ratingMessage")} {values.userRating}
+              {t("common.feedback.ratingMessage")} {values.userRating}
             </span>
           ) : (
             <>
@@ -67,7 +67,7 @@ const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
           type="text"
           id="feedbackText"
           name="feedbackText"
-          placeholder={t("pages.photoStudioPage.feedbackFormPlaceholder")}
+          placeholder={t("common.feedback.feedbackFormPlaceholder")}
           value={values.feedbackText}
           onChange={handleChange}
         />
@@ -76,7 +76,7 @@ const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
 
         {touched.userRating && errors.userRating ? <span>{errors.userRating}</span> : null}
 
-        <button type="submit">{t("pages.photoStudioPage.feedbackFormButton")}</button>
+        <button type="submit">{t("common.feedback.feedbackFormButton")}</button>
       </form>
       <button type="button" onClick={() => setEditMode(false)}>
         ЗАКРЫТЬ

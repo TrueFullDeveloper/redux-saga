@@ -9,7 +9,7 @@ const FeedbackList = ({ feedbackList }) => {
 
   return (
     <div>
-      <h1>{t("pages.photoStudioPage.feedbackListTitle")}</h1>
+      <h1>{t("common.feedback.feedbackListTitle")}</h1>
 
       {feedbackList.map(feedbackItem => (
         <div key={feedbackItem.feedbackId}>

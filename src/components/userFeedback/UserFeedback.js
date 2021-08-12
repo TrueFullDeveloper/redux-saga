@@ -24,7 +24,7 @@ const UserFeedback = ({ userFeedback, changeFeedback, removeFeedback }) => {
         />
       ) : null}
 
-      <h1>{t("pages.photoStudioPage.userFeedbackTitle")}</h1>
+      <h1>{t("common.feedback.userFeedbackTitle")}</h1>
 
       <div>
         <Link to={`/profile`}>

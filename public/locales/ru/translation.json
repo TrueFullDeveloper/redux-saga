@@ -1,5 +1,5 @@
 {
-    "title": "Eventer",
+    "title": "TakeLook",
     "pages": {
         "login": {
             "loginTitle": "Авторизация",
@@ -29,16 +29,7 @@
             "photoStudioArea": "Площадь фотостудии: ",
             "photoStudioWorkHours": "Время работы: ",
             "photoStudioPhone": "Телефон: ",
-            "studioPhotoPackageTitle": "Портфолио фотостудии",
-            "feedbackListTitle": "Отзывы", 
-            "ratingNotRequiredError": "Поставьте оценку мероприятию",
-            "feedbackExceedsLimitError": "Отзыв должен содерать меньше 400 символов",
-            "feedbackNotRequiredError": "Напишите отзыв",
-            "feedbackFormTitle": "Оставьте отзыв",
-            "ratingMessage": "Ваша оценка:",
-            "feedbackFormPlaceholder": "Оставьте отзыв",
-            "feedbackFormButton": "Оставить отзыв",
-            "userFeedbackTitle": "Ваш отзыв"
+            "studioPhotoPackageTitle": "Портфолио фотостудии"
         },
         "profile": {
             "userLanguagesTitle": "Языки: ",
@@ -81,6 +72,17 @@
             "passwordsNotMatchUpError": "Пароли не совпадают",
             "passwordPlaceholder": "Пароль",
             "repeatPasswordPlaceholder": "Повторите пароль"
+        },
+        "feedback":{
+            "feedbackListTitle": "Отзывы", 
+            "ratingNotRequiredError": "Поставьте оценку мероприятию",
+            "feedbackExceedsLimitError": "Отзыв должен содерать меньше 400 символов",
+            "feedbackNotRequiredError": "Напишите отзыв",
+            "feedbackFormTitle": "Оставьте отзыв",
+            "ratingMessage": "Ваша оценка:",
+            "feedbackFormPlaceholder": "Оставьте отзыв",
+            "feedbackFormButton": "Оставить отзыв",
+            "userFeedbackTitle": "Ваш отзыв"
         }
     }
 }
