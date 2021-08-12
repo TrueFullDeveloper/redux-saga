@@ -1,55 +1,17 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
 import { hideLoader, showLoader } from "../loader/loaderActions";
-import {
-  fetchTourFeedbackList,
-  fetchPhotoStudioFeedbackList,
-  fetchUserFeedbackList,
-  addTourFeedback,
-  addPhotoStudioFeedback,
-  editTourFeedback,
-  editPhotoStudioFeedback,
-  deleteTourFeedback,
-  deletePhotoStudioFeedback,
-} from "./feedbackActions";
-
-// Feedback type consatns
-const TOUR = "TOUR";
-const USER = "USER";
-const STUDIO = "STUDIO";
-
-const fetchFeedbackActions = {
-  [TOUR]: fetchTourFeedbackList,
-  [STUDIO]: fetchPhotoStudioFeedbackList,
-  [USER]: fetchUserFeedbackList,
-};
-
-const addFeedbackActions = {
-  [TOUR]: addTourFeedback,
-  [STUDIO]: addPhotoStudioFeedback,
-};
-
-const editFeedbackActions = {
-  [TOUR]: editTourFeedback,
-  [STUDIO]: editPhotoStudioFeedback,
-};
-
-const deleteFeedbackActions = {
-  [TOUR]: deleteTourFeedback,
-  [STUDIO]: deletePhotoStudioFeedback,
-};
+import { fetchFeedbackList, addFeedback, editFeedback, deleteFeedback } from "./feedbackActions";
 
 const useFeedbackActions = feedbackType => {
   const dispatch = useDispatch();
 
-  const fetchFeedbackList = id => {
+  const getFeedbackList = id => {
     dispatch(showLoader());
 
     Api.fetchFeedbackList({ id, type: feedbackType })
       .then(response => {
-        dispatch(fetchFeedbackActions[feedbackType](response));
-        // dispatch(fetchTourFeedbackList(response));
-        //dispatch({ type: feedbackType, payload: response });
+        dispatch(fetchFeedbackList({ ...response, instance: feedbackType }));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -57,12 +19,12 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const addFeedback = id => {
+  const sendFeedback = id => {
     dispatch(showLoader());
 
     Api.addFeedback({ id, type: feedbackType })
       .then(response => {
-        dispatch(addFeedbackActions[feedbackType](response));
+        dispatch(addFeedback({ ...response, instance: feedbackType }));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -70,12 +32,12 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const editFeedback = id => {
+  const changeFeedback = id => {
     dispatch(showLoader());
 
     Api.editFeedback({ id, type: feedbackType })
       .then(response => {
-        dispatch(editFeedbackActions[feedbackType](response));
+        dispatch(editFeedback({ ...response, instance: feedbackType }));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -83,12 +45,12 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  const deleteFeedback = id => {
+  const removeFeedback = id => {
     dispatch(showLoader());
 
     Api.deleteFeedback({ id, type: feedbackType })
       .then(response => {
-        dispatch(deleteFeedbackActions[feedbackType](response));
+        dispatch(deleteFeedback({ ...response, instance: feedbackType }));
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -96,7 +58,7 @@ const useFeedbackActions = feedbackType => {
       });
   };
 
-  return { fetchFeedbackList, addFeedback, editFeedback, deleteFeedback };
+  return { getFeedbackList, sendFeedback, changeFeedback, removeFeedback };
 };
 
 export default useFeedbackActions;

@@ -1,51 +1,34 @@
 import {
-  FETCH_TOUR_FEEDBACK_LIST,
-  FETCH_PHOTO_STUDIO_FEEDBACK_LIST,
-  FETCH_USER_FEEDBACK_LIST,
-  ADD_TOUR_FEEDBACK,
-  ADD_PHOTO_STUDIO_FEEDBACK,
-  EDIT_TOUR_FEEDBACK,
-  EDIT_PHOTO_STUDIO_FEEDBACK,
-  DELETE_TOUR_FEEDBACK,
-  DELETE_PHOTO_STUDIO_FEEDBACK,
-} from "./profileActions";
+  ADD_FEEDBACK,
+  EDIT_FEEDBACK,
+  DELETE_FEEDBACK,
+  FETCH_FEEDBACK_LIST,
+} from "./feedbackActions";
+import { FEEDBACK_INSTANCES } from "../../config/feedbackConfig";
 
-const initialState = {
-  tourFeedbackList: [],
-  userTourFeedback: null,
+/*
+  [instance]: {
+    list: [],
+    my: null
+  }
+*/
 
-  photoStudioFeedbackList: [],
-  userStudioFeedback: null,
-
-  userFeedbackList: [],
-};
+const initialState = Object.fromEntries(
+  FEEDBACK_INSTANCES.map(instance => [instance, { list: [], my: null }])
+);
 
 export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_TOUR_FEEDBACK_LIST:
-    case ADD_TOUR_FEEDBACK:
-    case EDIT_TOUR_FEEDBACK:
-    case DELETE_TOUR_FEEDBACK:
+    case FETCH_FEEDBACK_LIST:
+    case ADD_FEEDBACK:
+    case EDIT_FEEDBACK:
+    case DELETE_FEEDBACK:
       return {
         ...state,
-        userFeedbackList: action.payload.feedbackList,
-        userTourFeedback: action.payload.userFeedback,
-      };
-
-    case FETCH_PHOTO_STUDIO_FEEDBACK_LIST:
-    case ADD_PHOTO_STUDIO_FEEDBACK:
-    case EDIT_PHOTO_STUDIO_FEEDBACK:
-    case DELETE_PHOTO_STUDIO_FEEDBACK:
-      return {
-        ...state,
-        photoStudioFeedbackList: action.payload.feedbackList,
-        userStudioFeedback: action.payload.userFeedback,
-      };
-
-    case FETCH_USER_FEEDBACK_LIST:
-      return {
-        ...state,
-        userFeedbackList: action.payload.feedbackList,
+        [action.payload.instance]: {
+          list: action.payload.list,
+          my: action.payload.my,
+        },
       };
 
     default:
