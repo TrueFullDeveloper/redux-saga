@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { createPortal } from "react-dom";
 
 import { useTranslation } from "react-i18next";
 
-const FeedbackForm = ({ id, sendFeedback }) => {
+const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
   const { t } = useTranslation();
+  const feedbackEditModal = useRef(document.createElement("div"));
   const [isRate, setRate] = useState(false);
+
+  useEffect(() => {
+    document.body.appendChild(feedbackEditModal.current);
+
+    return () => document.body.removeChild(feedbackEditModal.current);
+  }, []);
 
   const { handleSubmit, handleChange, setFieldValue, values, errors, touched } = useFormik({
     initialValues: {
       userRating: "",
-      feedbackText: "",
+      feedbackText: userFeedback.feedbackText,
     },
 
     validationSchema: yup.object({
@@ -23,7 +31,8 @@ const FeedbackForm = ({ id, sendFeedback }) => {
     }),
 
     onSubmit: ({ feedbackText, userRating }) => {
-      sendFeedback({ id, feedbackText, userRating });
+      changeFeedback({ id: userFeedback.feedbackId, feedbackText, userRating });
+      setEditMode(false);
     },
   });
 
@@ -32,7 +41,7 @@ const FeedbackForm = ({ id, sendFeedback }) => {
     setRate(true);
   };
 
-  return (
+  return createPortal(
     <div>
       <div></div>
       <h1>{t("pages.photoStudioPage.feedbackFormTitle")}</h1>
@@ -68,8 +77,12 @@ const FeedbackForm = ({ id, sendFeedback }) => {
 
         <button type="submit">{t("pages.photoStudioPage.feedbackFormButton")}</button>
       </form>
-    </div>
+      <button type="button" onClick={() => setEditMode(false)}>
+        ЗАКРЫТЬ
+      </button>
+    </div>,
+    feedbackEditModal.current
   );
 };
 
-export default FeedbackForm;
+export default FeedbackEditModal;

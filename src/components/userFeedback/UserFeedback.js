@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //i18n
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import FeedbackEditModal from "../feedbackEditModal/FeedbackEditModal";
 
 const UserFeedback = ({ userFeedback, changeFeedback, removeFeedback }) => {
   const { t } = useTranslation();
@@ -13,6 +14,14 @@ const UserFeedback = ({ userFeedback, changeFeedback, removeFeedback }) => {
 
   return (
     <div>
+      {editMode ? (
+        <FeedbackEditModal
+          userFeedback={userFeedback}
+          setEditMode={setEditMode}
+          changeFeedback={changeFeedback}
+        />
+      ) : null}
+
       <h1>{t("pages.photoStudioPage.userFeedbackTitle")}</h1>
 
       <div>
@@ -28,6 +37,9 @@ const UserFeedback = ({ userFeedback, changeFeedback, removeFeedback }) => {
       </div>
       <button type="button" onClick={onRemove}>
         УДАЛИТЬ
+      </button>
+      <button type="button" onClick={() => setEditMode(true)}>
+        РЕДАКТИРОВАТЬ
       </button>
     </div>
   );
