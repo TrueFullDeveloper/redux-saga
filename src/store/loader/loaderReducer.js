@@ -1,15 +1,15 @@
-import { HIDE_LOADER, SHOW_LOADER } from "./loaderActions";
+import { ADD_CALL, SUB_CALL } from "./loaderActions";
 
 const initialState = {
-  loading: false,
+  calls: 0,
 };
 
 export const loaderReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_LOADER:
-      return { ...state, loading: true };
-    case HIDE_LOADER:
-      return { ...state, loading: false };
+    case ADD_CALL:
+      return { ...state, currentStack: state.calls + 1 };
+    case SUB_CALL:
+      return { ...state, currentStack: state.calls - 1 };
     default:
       return state;
   }

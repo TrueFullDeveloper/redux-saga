@@ -1,14 +1,15 @@
-export const SHOW_LOADER = "SHOW_LOADER";
-export const HIDE_LOADER = "HIDE_LOADER";
+export const ADD_CALL = "SHOW_LOADER";
+export const SUB_CALL = "HIDE_LOADER";
 
-export const showLoader = () => {
+export const addLoaderCall = () => {
   return {
-    type: SHOW_LOADER,
+    type: ADD_CALL,
   };
 };
 
-export const hideLoader = () => {
+export const subLoaderCall = payload => {
   return {
-    type: HIDE_LOADER,
+    type: SUB_CALL,
+    payload,
   };
 };

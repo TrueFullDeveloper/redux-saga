@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 import {
   fetchPhotoStudioList,
   fetchPhotoStudioInformation,
@@ -11,7 +11,7 @@ const useStudioActions = () => {
   const dispatch = useDispatch();
 
   const getPhotoStudioList = () => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchPhotoStudioList()
       .then(response => {
@@ -19,12 +19,12 @@ const useStudioActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const getPhotoStudio = ({ studioId }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchPhotoStudioInformation({ studioId })
       .then(response => {
@@ -38,7 +38,7 @@ const useStudioActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 

@@ -1,13 +1,13 @@
 import React, { Suspense, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useLoader } from "./utils/hooks/useLoader";
 import useAuthActions from "./store/auth/useAuthActions";
 
 import Loader from "./components/loader";
 import Routes from "./components/routes";
 
 function App() {
-  const loading = useSelector(state => state.loader.loading);
+  const { loading } = useLoader();
   const { doTokenUpdate } = useAuthActions();
 
   useEffect(() => {

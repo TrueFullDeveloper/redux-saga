@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 import { fetchTourManagerProfile, fetchTourManagerTourList } from "./tourManagerActions";
 
 const useTourManagerActions = () => {
   const dispatch = useDispatch();
 
   const getTourManagerProfile = ({ tourManagerId }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchTourManagerProfile({ tourManagerId })
       .then(response => {
@@ -21,7 +21,7 @@ const useTourManagerActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 

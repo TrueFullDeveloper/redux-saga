@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
 import { fetchFeedbackList, addFeedback, editFeedback, deleteFeedback } from "./feedbackActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 
 const useFeedbackActions = feedbackType => {
   const dispatch = useDispatch();
 
   const getFeedbackList = id => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchFeedbackList({ id, type: feedbackType })
       .then(response => {
@@ -15,12 +15,12 @@ const useFeedbackActions = feedbackType => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const sendFeedback = id => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.addFeedback({ id, type: feedbackType })
       .then(response => {
@@ -28,12 +28,12 @@ const useFeedbackActions = feedbackType => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const changeFeedback = id => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.editFeedback({ id, type: feedbackType })
       .then(response => {
@@ -41,12 +41,12 @@ const useFeedbackActions = feedbackType => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const removeFeedback = id => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.deleteFeedback({ id, type: feedbackType })
       .then(response => {
@@ -54,7 +54,7 @@ const useFeedbackActions = feedbackType => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 

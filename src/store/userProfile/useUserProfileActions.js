@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 import { fetchUserProfile } from "./userProfileActions";
 
 const useUserProfileActions = () => {
   const dispatch = useDispatch();
 
   const getUserProfile = ({ userId }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchUserProfile({ userId })
       .then(response => {
@@ -15,7 +15,7 @@ const useUserProfileActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 

@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux";
 import { USER_TOKEN } from "../../config/constans";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 import { login, signup, tokenUpdate } from "./authActions";
 
 const useAuthActions = () => {
   const dispatch = useDispatch();
 
   const doLogin = ({ email, password }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.login({ email, password })
       .then(response => {
@@ -16,12 +16,12 @@ const useAuthActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const doSignup = ({ email, password, userName }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.signup({ email, password, userName })
       .then(response => {
@@ -29,7 +29,7 @@ const useAuthActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
@@ -37,7 +37,7 @@ const useAuthActions = () => {
     const userToken = localStorage.getItem(USER_TOKEN);
 
     if (userToken) {
-      dispatch(showLoader());
+      dispatch(addLoaderCall());
 
       Api.tokenUpdate({ userToken })
         .then(response => {
@@ -45,7 +45,7 @@ const useAuthActions = () => {
         })
         .catch(error => console.log(error))
         .finally(() => {
-          dispatch(hideLoader());
+          dispatch(subLoaderCall());
         });
     }
   };

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Api } from "../api/api";
-import { hideLoader, showLoader } from "../loader/loaderActions";
+import { addLoaderCall, subLoaderCall } from "../loader/loaderActions";
 import {
   fetchTourList,
   fetchTourInformation,
@@ -12,7 +12,7 @@ const useTourActions = () => {
   const dispatch = useDispatch();
 
   const getTourList = () => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchTourList()
       .then(response => {
@@ -20,12 +20,12 @@ const useTourActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
   const getTour = ({ tourId }) => {
-    dispatch(showLoader());
+    dispatch(addLoaderCall());
 
     Api.fetchTourInformation({ tourId })
       .then(response => {
@@ -45,7 +45,7 @@ const useTourActions = () => {
       })
       .catch(error => console.log(error))
       .finally(() => {
-        dispatch(hideLoader());
+        dispatch(subLoaderCall());
       });
   };
 
