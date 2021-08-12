@@ -7,9 +7,9 @@ const initialState = {
 export const loaderReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CALL:
-      return { ...state, currentStack: state.calls + 1 };
+      return { ...state, calls: state.calls + 1 };
     case SUB_CALL:
-      return { ...state, currentStack: state.calls - 1 };
+      return { ...state, calls: state.calls - 1 };
     default:
       return state;
   }
