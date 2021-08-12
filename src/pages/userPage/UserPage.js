@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useUserProfileActions from "../../store/userProfile/useUserProfileActions";
 import useFeedbackActions from "../../store/feedback/useFeedbackActions";
-
 import { feedbackEndpoints } from "../../config/feedbackConfig";
-
 import Header from "../../components/header";
 import FeedbackList from "../../components/feedbackList";
 import UserInformation from "../../components/userInformation";

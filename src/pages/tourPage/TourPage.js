@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useTourActions from "../../store/tour/useTourActions";
 import useFeedbackActions from "../../store/feedback/useFeedbackActions";
-
 import { feedbackEndpoints } from "../../config/feedbackConfig";
-
 import Header from "../../components/header";
 import TourInformation from "../../components/tourInformation";
 import PhotoPackage from "../../components/photoPackage";
@@ -18,11 +16,10 @@ const TourPage = () => {
   const tourInformation = useSelector(state => state.tour.tourInformation);
   const photoPackage = useSelector(state => state.tour.photoPackage);
   const tourManager = useSelector(state => state.tour.tourManager);
-
   const feedbackList = useSelector(state => state.feedback[feedbackEndpoints.TOUR].list);
   const userFeedback = useSelector(state => state.feedback[feedbackEndpoints.TOUR].my);
-
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
   const { tourId } = useParams();
   const { getTour } = useTourActions();
   const { getFeedbackList, sendFeedback, changeFeedback, removeFeedback } = useFeedbackActions(

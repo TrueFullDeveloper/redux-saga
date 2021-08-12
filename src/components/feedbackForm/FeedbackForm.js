@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import * as yup from "yup";
-
 import { useTranslation } from "react-i18next";
 
 const FeedbackForm = ({ id, sendFeedback }) => {

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useStudioActions from "../../store/studio/useStudioActions";
-//Components
 import Header from "../../components/header/Header";
 import PhotoStudioList from "../../components/photoStudioList/PhotoStudioList";
 

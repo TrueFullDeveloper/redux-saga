@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useTourActions from "../../store/tour/useTourActions";
-//Components
 import Header from "../../components/header";
 import TourList from "../../components/tourList/TourList";
 

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { createPortal } from "react-dom";
-
 import { useTranslation } from "react-i18next";
 
 const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {

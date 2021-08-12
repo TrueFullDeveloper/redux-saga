@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useProfileActions from "../../store/profile/useProfileActions";
-//Components
 import Header from "../../components/header";
 import ProfileInformation from "../../components/profileInformation";
 

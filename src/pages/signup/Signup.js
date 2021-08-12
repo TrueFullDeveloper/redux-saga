@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import useAuthActions from "../../store/auth/useAuthActions";
-//i18n
 import { useTranslation } from "react-i18next";
 
 //TODO: Add Normal Equal Password Validation
 
 const Signup = () => {
-  const { doSignup } = useAuthActions();
   const { t } = useTranslation();
+  const { doSignup } = useAuthActions();
 
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {

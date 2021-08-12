@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import useAuthActions from "../../store/auth/useAuthActions";
 import { useFormik } from "formik";
 import * as yup from "yup";
-//i18n
 import { useTranslation } from "react-i18next";
 
 const Login = () => {
-  const { doLogin } = useAuthActions();
   const { t } = useTranslation();
+  const { doLogin } = useAuthActions();
 
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {
