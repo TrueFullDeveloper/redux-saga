@@ -1,7 +1,8 @@
 import React from "react";
-//i18n
-import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+
+import { useTranslation } from "react-i18next";
 
 const FeedbackList = ({ feedbackList }) => {
   const { t } = useTranslation();
@@ -25,6 +26,10 @@ const FeedbackList = ({ feedbackList }) => {
       ))}
     </div>
   );
+};
+
+FeedbackList.propTypes = {
+  feedbackList: PropTypes.array.isRequired,
 };
 
 export default FeedbackList;

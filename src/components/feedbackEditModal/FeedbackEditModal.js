@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { createPortal } from "react-dom";
@@ -83,6 +84,12 @@ const FeedbackEditModal = ({ userFeedback, setEditMode, changeFeedback }) => {
     </div>,
     feedbackEditModal.current
   );
+};
+
+FeedbackEditModal.propTypes = {
+  userFeedback: PropTypes.object.isRequired,
+  setEditMode: PropTypes.func.isRequired,
+  changeFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackEditModal;

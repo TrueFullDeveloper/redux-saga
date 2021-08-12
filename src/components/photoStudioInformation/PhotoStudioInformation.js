@@ -1,5 +1,6 @@
 import React from "react";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const PhotoStudioInformation = ({ photoStudio }) => {
@@ -37,6 +38,10 @@ const PhotoStudioInformation = ({ photoStudio }) => {
       ) : null}
     </div>
   );
+};
+
+PhotoStudioInformation.propTypes = {
+  photoStudio: PropTypes.object.isRequired,
 };
 
 export default PhotoStudioInformation;

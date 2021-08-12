@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -70,6 +71,11 @@ const FeedbackForm = ({ id, sendFeedback }) => {
       </form>
     </div>
   );
+};
+
+FeedbackForm.propTypes = {
+  id: PropTypes.number.isRequired,
+  sendFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackForm;

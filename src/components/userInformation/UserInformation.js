@@ -1,5 +1,6 @@
 import React from "react";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const UserInformation = ({ userProfile }) => {
@@ -20,6 +21,10 @@ const UserInformation = ({ userProfile }) => {
       <span>{t("pages.userPage.userLanguagesTitle") + userProfile.userLanguages}</span>
     </div>
   );
+};
+
+UserInformation.propTypes = {
+  userProfile: PropTypes.object.isRequired,
 };
 
 export default UserInformation;

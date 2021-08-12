@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TourInformation = ({ tourInformation }) => {
   return (
@@ -14,6 +15,10 @@ const TourInformation = ({ tourInformation }) => {
       <div>{tourInformation.tourRating}</div>
     </div>
   );
+};
+
+TourInformation.propTypes = {
+  tourInformation: PropTypes.object.isRequired,
 };
 
 export default TourInformation;

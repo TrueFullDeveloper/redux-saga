@@ -1,5 +1,6 @@
 import React from "react";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const ProfileInformation = ({ profile }) => {
@@ -21,4 +22,9 @@ const ProfileInformation = ({ profile }) => {
     </div>
   );
 };
+
+ProfileInformation.propTypes = {
+  profile: PropTypes.object.isRequired,
+};
+
 export default ProfileInformation;

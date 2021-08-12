@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-//i18n
+
 import { useTranslation } from "react-i18next";
 
 const TourManager = ({ tourManager }) => {
@@ -20,6 +21,10 @@ const TourManager = ({ tourManager }) => {
       </Link>
     </div>
   );
+};
+
+TourManager.propTypes = {
+  tourManager: PropTypes.object.isRequired,
 };
 
 export default TourManager;

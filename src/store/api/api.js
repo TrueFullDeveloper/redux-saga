@@ -8,6 +8,10 @@ import {
 } from "../_fakeData/fakeData";
 import { instance } from "./apiConfig";
 
+// function timeout(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
 export const Api = {
   //! Auth API
   login: async ({ email, password }) => {

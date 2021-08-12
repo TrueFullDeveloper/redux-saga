@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const PhotoStudioList = ({ photoStudioList }) => {
@@ -29,6 +30,10 @@ const PhotoStudioList = ({ photoStudioList }) => {
       ))}
     </div>
   );
+};
+
+PhotoStudioList.propTypes = {
+  photoStudioList: PropTypes.array.isRequired,
 };
 
 export default PhotoStudioList;

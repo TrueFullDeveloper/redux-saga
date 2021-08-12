@@ -1,5 +1,6 @@
 import React from "react";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const TourManagerInformation = ({ tourManager }) => {
@@ -22,4 +23,9 @@ const TourManagerInformation = ({ tourManager }) => {
     </div>
   );
 };
+
+TourManagerInformation.propTypes = {
+  tourManager: PropTypes.object.isRequired,
+};
+
 export default TourManagerInformation;

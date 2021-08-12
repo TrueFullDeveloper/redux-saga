@@ -1,5 +1,6 @@
 import React from "react";
-//i18n
+import PropTypes from "prop-types";
+
 import { useTranslation } from "react-i18next";
 
 const StudioPhotoPackage = ({ studioPhotoPackage }) => {
@@ -16,6 +17,10 @@ const StudioPhotoPackage = ({ studioPhotoPackage }) => {
       ))}
     </div>
   );
+};
+
+StudioPhotoPackage.propTypes = {
+  studioPhotoPackage: PropTypes.array.isRequired,
 };
 
 export default StudioPhotoPackage;

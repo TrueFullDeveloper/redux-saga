@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-//i18n
+
 import { useTranslation } from "react-i18next";
 
 const TourList = ({ tourList }) => {
@@ -24,6 +25,10 @@ const TourList = ({ tourList }) => {
       ))}
     </div>
   );
+};
+
+TourList.propTypes = {
+  tourList: PropTypes.array.isRequired,
 };
 
 export default TourList;
