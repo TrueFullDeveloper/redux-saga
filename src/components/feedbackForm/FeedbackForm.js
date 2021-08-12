@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import useStudioActions from "../../store/studio/useStudioActions";
-//i18n
+
 import { useTranslation } from "react-i18next";
 
-const FeedbackForm = ({ id }) => {
+const FeedbackForm = ({ id, sendFeedback }) => {
   const { t } = useTranslation();
-  const { sendFeedback } = useStudioActions();
   const [isRate, setRate] = useState(false);
 
   const onClick = userRating => {
@@ -30,7 +28,7 @@ const FeedbackForm = ({ id }) => {
     }),
 
     onSubmit: ({ feedbackText, userRating }) => {
-      //sendFeedback({ id, feedbackText, userRating });
+      sendFeedback({ id, feedbackText, userRating });
     },
   });
 

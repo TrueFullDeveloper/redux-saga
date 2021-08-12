@@ -25,7 +25,9 @@ const TourPage = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const { tourId } = useParams();
   const { getTour } = useTourActions();
-  const { getFeedbackList } = useFeedbackActions(feedbackEndpoints.TOUR);
+  const { getFeedbackList, sendFeedback, changeFeedback, removeFeedback } = useFeedbackActions(
+    feedbackEndpoints.TOUR
+  );
 
   useEffect(() => {
     getTour({ tourId });
@@ -38,8 +40,16 @@ const TourPage = () => {
       <TourInformation tourInformation={tourInformation} />
       <PhotoPackage photoPackage={photoPackage} />
       <TourManager tourManager={tourManager} />
-      {!userFeedback && isAuthenticated ? <FeedbackForm id={tourId} /> : null}
-      {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
+      {!userFeedback && isAuthenticated ? (
+        <FeedbackForm id={tourId} sendFeedback={sendFeedback} />
+      ) : null}
+      {userFeedback ? (
+        <UserFeedback
+          userFeedback={userFeedback}
+          changeFeedback={changeFeedback}
+          removeFeedback={removeFeedback}
+        />
+      ) : null}
       <FeedbackList feedbackList={feedbackList} />
     </>
   );

@@ -23,7 +23,9 @@ const PhotoStudioPage = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const { studioId } = useParams();
   const { getPhotoStudio } = useStudioActions();
-  const { getFeedbackList } = useFeedbackActions(feedbackEndpoints.STUDIO);
+  const { getFeedbackList, sendFeedback, changeFeedback, removeFeedback } = useFeedbackActions(
+    feedbackEndpoints.STUDIO
+  );
 
   useEffect(() => {
     getPhotoStudio({ studioId });
@@ -35,8 +37,16 @@ const PhotoStudioPage = () => {
       <Header />
       <PhotoStudioInformation photoStudio={photoStudio} />
       <StudioPhotoPackage studioPhotoPackage={studioPhotoPackage} />
-      {!userFeedback && isAuthenticated ? <FeedbackForm id={studioId} /> : null}
-      {userFeedback ? <UserFeedback userFeedback={userFeedback} /> : null}
+      {!userFeedback && isAuthenticated ? (
+        <FeedbackForm id={studioId} sendFeedback={sendFeedback} />
+      ) : null}
+      {userFeedback ? (
+        <UserFeedback
+          userFeedback={userFeedback}
+          changeFeedback={changeFeedback}
+          removeFeedback={removeFeedback}
+        />
+      ) : null}
       <FeedbackList feedbackList={feedbackList} />
     </>
   );

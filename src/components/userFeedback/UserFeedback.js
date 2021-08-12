@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 //i18n
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const UserFeedback = ({ userFeedback }) => {
+const UserFeedback = ({ userFeedback, changeFeedback, removeFeedback }) => {
   const { t } = useTranslation();
+  const [editMode, setEditMode] = useState(false);
+
+  const onRemove = () => {
+    removeFeedback({ id: userFeedback.feedbackId });
+  };
 
   return (
     <div>
@@ -21,6 +26,9 @@ const UserFeedback = ({ userFeedback }) => {
         <span>{userFeedback.createdAt}</span>
         <p>{userFeedback.feedbackText}</p>
       </div>
+      <button type="button" onClick={onRemove}>
+        УДАЛИТЬ
+      </button>
     </div>
   );
 };
